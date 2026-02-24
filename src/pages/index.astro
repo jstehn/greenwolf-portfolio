@@ -405,6 +405,39 @@ const featuredProjects = resume.projects.slice(0, 3);
 		background: var(--color-bg-alt);
 		opacity: 1;
 	}
+
+	/* Responsive Adjustments for Testimonials */
+	@media (max-width: 768px) {
+		.testimonial-track {
+			height: 300px; /* More vertical space for wrapping text on narrow screens */
+		}
+
+		.testimonial-carousel {
+			gap: var(--space-1); /* Tighter gap between content and arrows */
+		}
+
+		.testimonial-nav {
+			width: 24px;
+			height: 24px;
+		}
+
+		.testimonial-quote {
+			padding: var(--space-4) var(--space-4) var(--space-4);
+		}
+
+		.testimonial-quote p {
+			padding-left: var(--space-6);
+			font-size: 13px; /* Slightly smaller text */
+			line-height: 1.6;
+		}
+
+		.testimonial-icon {
+			width: 20px;
+			height: 20px;
+			top: var(--space-3);
+			left: var(--space-3);
+		}
+	}
 </style>
 
 <script>
