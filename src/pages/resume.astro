@@ -1,0 +1,424 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import resume from "../data/resume.json";
+
+const { basics, work, education, skills, awards, volunteer } = resume;
+
+function formatDate(dateStr: string): string {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("en-US", {
+        month: "short",
+        year: "numeric",
+    });
+}
+---
+
+<BaseLayout title={`Resume — ${basics.name}`} description={basics.label}>
+    <div class="resume-page">
+        <!-- Header / Download -->
+        <div class="resume-header">
+            <div>
+                <h1>{basics.name}</h1>
+                <p class="resume-label">{basics.label}</p>
+                <p class="resume-location">
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
+                        ></path><circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    {basics.location.city}, {basics.location.region}
+                </p>
+            </div>
+            <a href="/resume.pdf" download class="btn btn-primary">
+                <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download PDF
+            </a>
+        </div>
+
+        <!-- Summary -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">Summary</h2>
+            <p class="resume-summary">{basics.summary}</p>
+        </section>
+
+        <!-- Experience -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">Experience</h2>
+            <div class="timeline">
+                {
+                    work.map((job) => (
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-title">
+                                        {job.position}
+                                    </h3>
+                                    <p class="timeline-org">
+                                        {job.name} · {job.location}
+                                    </p>
+                                </div>
+                                <span class="timeline-date">
+                                    {formatDate(job.startDate)} —{" "}
+                                    {job.endDate
+                                        ? formatDate(job.endDate)
+                                        : "Present"}
+                                </span>
+                            </div>
+                            {job.highlights && (
+                                <ul class="timeline-highlights">
+                                    {job.highlights.map((h) => (
+                                        <li
+                                            set:html={h.replace(
+                                                /\*\*(.*?)\*\*/g,
+                                                "<strong>$1</strong>"
+                                            )}
+                                        />
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">Education</h2>
+            {
+                education.map((edu) => (
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">
+                                    {edu.institution}
+                                </h3>
+                                <p class="timeline-org">
+                                    {edu.studyType} in {edu.area}
+                                </p>
+                                {edu.gpa && (
+                                    <p class="timeline-detail">
+                                        GPA: {edu.gpa}
+                                    </p>
+                                )}
+                                {edu.summary && (
+                                    <p class="timeline-detail">{edu.summary}</p>
+                                )}
+                            </div>
+                            <span class="timeline-date">
+                                {formatDate(edu.startDate)} —{" "}
+                                {formatDate(edu.endDate)}
+                            </span>
+                        </div>
+                    </div>
+                ))
+            }
+        </section>
+
+        <!-- Skills -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">Skills</h2>
+            <div class="skills-grid">
+                {
+                    skills.map((group) => (
+                        <div class="skill-group">
+                            <h4 class="skill-group-name">{group.name}</h4>
+                            <div class="tag-list">
+                                {group.keywords.map((kw) => (
+                                    <span class="tag">{kw}</span>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <!-- Awards -->
+        {
+            awards && awards.length > 0 && (
+                <section class="resume-section">
+                    <h2 class="resume-section-title">Awards</h2>
+                    {awards.map((award) => (
+                        <div class="award-item">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-title">
+                                        {award.title}
+                                    </h3>
+                                    <p class="timeline-org">{award.awarder}</p>
+                                    {award.summary && (
+                                        <p class="timeline-detail">
+                                            {award.summary}
+                                        </p>
+                                    )}
+                                </div>
+                                {award.date && (
+                                    <span class="timeline-date">
+                                        {formatDate(award.date)}
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </section>
+            )
+        }
+
+        <!-- Volunteer -->
+        {
+            volunteer && volunteer.length > 0 && (
+                <section class="resume-section">
+                    <h2 class="resume-section-title">Volunteer & Community</h2>
+                    <div class="timeline">
+                        {volunteer.map((vol) => (
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div>
+                                        <h3 class="timeline-title">
+                                            {vol.position}
+                                        </h3>
+                                        <p class="timeline-org">
+                                            {vol.organization}
+                                        </p>
+                                    </div>
+                                    {vol.startDate && (
+                                        <span class="timeline-date">
+                                            {formatDate(vol.startDate)} —{" "}
+                                            {vol.endDate
+                                                ? formatDate(vol.endDate)
+                                                : "Present"}
+                                        </span>
+                                    )}
+                                </div>
+                                {vol.summary && (
+                                    <p class="vol-summary">{vol.summary}</p>
+                                )}
+                                {vol.highlights && (
+                                    <ul class="timeline-highlights">
+                                        {vol.highlights.map((h) => (
+                                            <li
+                                                set:html={h.replace(
+                                                    /\*\*(.*?)\*\*/g,
+                                                    "<strong>$1</strong>"
+                                                )}
+                                            />
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )
+        }
+    </div>
+</BaseLayout>
+
+<style>
+    .resume-page {
+        max-width: 860px;
+        margin: 0 auto;
+    }
+
+    /* Header */
+    .resume-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: var(--space-6);
+        padding-bottom: var(--space-8);
+        border-bottom: 1px solid var(--color-border);
+        margin-bottom: var(--space-8);
+    }
+
+    .resume-header h1 {
+        margin-bottom: var(--space-2);
+    }
+
+    .resume-label {
+        font-size: var(--text-lg);
+        color: var(--color-text-secondary);
+        margin: 0 0 var(--space-2);
+    }
+
+    .resume-location {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-size: var(--text-sm);
+        color: var(--color-text-muted);
+        margin: 0;
+    }
+
+    /* Section */
+    .resume-section {
+        margin-bottom: var(--space-12);
+    }
+
+    .resume-section-title {
+        font-size: var(--text-xl);
+        font-weight: 700;
+        color: var(--color-text);
+        padding-bottom: var(--space-3);
+        border-bottom: 2px solid var(--color-accent);
+        margin-bottom: var(--space-6);
+        display: inline-block;
+    }
+
+    .resume-summary {
+        font-size: var(--text-base);
+        line-height: 1.8;
+        color: var(--color-text-secondary);
+    }
+
+    /* Timeline */
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+    }
+
+    .timeline-item {
+        padding-left: var(--space-6);
+        border-left: 2px solid var(--color-border);
+        position: relative;
+    }
+
+    .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -5px;
+        top: 6px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--color-accent);
+    }
+
+    .timeline-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: var(--space-4);
+        margin-bottom: var(--space-3);
+    }
+
+    .timeline-title {
+        font-size: var(--text-lg);
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .timeline-org {
+        font-size: var(--text-sm);
+        color: var(--color-text-secondary);
+        margin: var(--space-1) 0 0;
+    }
+
+    .timeline-detail {
+        font-size: var(--text-sm);
+        color: var(--color-text-muted);
+        margin: var(--space-1) 0 0;
+        font-style: italic;
+    }
+
+    .timeline-date {
+        font-size: var(--text-sm);
+        color: var(--color-text-muted);
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .timeline-highlights {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .timeline-highlights li {
+        font-size: var(--text-sm);
+        color: var(--color-text-secondary);
+        padding: var(--space-1) 0;
+        padding-left: var(--space-5);
+        position: relative;
+        line-height: 1.6;
+    }
+
+    .timeline-highlights li::before {
+        content: "›";
+        position: absolute;
+        left: 0;
+        color: var(--color-accent);
+        font-weight: 700;
+        font-size: var(--text-base);
+    }
+
+    .vol-summary {
+        font-size: var(--text-sm);
+        color: var(--color-text-secondary);
+        margin: 0 0 var(--space-3);
+        line-height: 1.6;
+    }
+
+    /* Skills */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: var(--space-6);
+    }
+
+    .skill-group {
+        padding: var(--space-5);
+        background: var(--color-bg-alt);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-border-light);
+    }
+
+    .skill-group-name {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        margin: 0 0 var(--space-3);
+        color: var(--color-text);
+    }
+
+    /* Award */
+    .award-item {
+        padding: var(--space-5);
+        background: var(--color-bg-alt);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-border-light);
+    }
+
+    @media (max-width: 768px) {
+        .resume-header {
+            flex-direction: column;
+        }
+
+        .timeline-header {
+            flex-direction: column;
+            gap: var(--space-1);
+        }
+
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

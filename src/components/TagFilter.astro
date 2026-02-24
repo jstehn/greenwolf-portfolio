@@ -1,0 +1,84 @@
+---
+interface Props {
+    tags: string[];
+    /** CSS selector for items to filter — must have data-tags attribute */
+    targetSelector: string;
+}
+
+const { tags, targetSelector } = Astro.props;
+const uniqueTags = [...new Set(tags)].sort();
+---
+
+<div class="tag-filter" data-target={targetSelector}>
+    <button class="filter-btn active" data-tag="all">All</button>
+    {
+        uniqueTags.map((tag) => (
+            <button class="filter-btn" data-tag={tag.toLowerCase()}>
+                {tag}
+            </button>
+        ))
+    }
+</div>
+
+<script>
+    document.querySelectorAll(".tag-filter").forEach((filter) => {
+        const targetSelector = filter.getAttribute("data-target") || "";
+        const buttons = filter.querySelectorAll(".filter-btn");
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                // Update active button
+                buttons.forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                const tag = btn.getAttribute("data-tag") || "all";
+                const items = document.querySelectorAll(targetSelector);
+
+                items.forEach((item) => {
+                    const el = item as HTMLElement;
+                    if (tag === "all") {
+                        el.style.display = "";
+                    } else {
+                        const itemTags = el.getAttribute("data-tags") || "";
+                        el.style.display = itemTags.includes(tag) ? "" : "none";
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<style>
+    .tag-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+        margin-bottom: var(--space-8);
+    }
+
+    .filter-btn {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        font-family: var(--font-sans);
+        color: var(--color-text-secondary);
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-full);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        white-space: nowrap;
+    }
+
+    .filter-btn:hover {
+        border-color: var(--color-accent);
+        color: var(--color-accent);
+        background: var(--color-accent-light);
+    }
+
+    .filter-btn.active {
+        background: var(--color-accent);
+        color: var(--color-text-inverse);
+        border-color: var(--color-accent);
+    }
+</style>

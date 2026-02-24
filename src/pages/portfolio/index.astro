@@ -1,0 +1,85 @@
+---
+import ProjectCard from "../../components/ProjectCard.astro";
+import TagFilter from "../../components/TagFilter.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import resume from "../../data/resume.json";
+import { getCollection } from "astro:content";
+
+// Load projects from resume.json
+const resumeProjects = resume.projects.map((p) => ({
+    name: p.name,
+    summary: p.summary,
+    keywords: p.keywords || [],
+    url: p.url,
+    source: "resume" as const,
+}));
+
+// Load additional projects from content collection (if any)
+let contentProjects: typeof resumeProjects = [];
+try {
+    const collection = await getCollection("projects");
+    contentProjects = collection.map((p) => ({
+        name: p.data.title,
+        summary: p.data.description,
+        keywords: p.data.tags || [],
+        url: p.data.url,
+        source: "content" as const,
+    }));
+} catch {
+    // No projects collection yet — that's fine
+}
+
+const allProjects = [...resumeProjects, ...contentProjects];
+
+// Collect all unique tags
+const allTags = [...new Set(allProjects.flatMap((p) => p.keywords))].sort();
+---
+
+<BaseLayout
+    title="Portfolio — Jack Stehn"
+    description="Projects and work by Jack Stehn — ML, Data Engineering, and Data Science."
+>
+    <section class="portfolio-page">
+        <div class="section-header">
+            <h1 class="section-title">Portfolio</h1>
+            <p class="section-subtitle">
+                A collection of projects spanning ML, data engineering, and
+                applied AI
+            </p>
+        </div>
+
+        <TagFilter tags={allTags} targetSelector=".project-card" />
+
+        <div class="project-grid">
+            {
+                allProjects.map((project) => (
+                    <ProjectCard
+                        title={project.name}
+                        description={project.summary}
+                        tags={project.keywords}
+                        url={project.url}
+                    />
+                ))
+            }
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    .portfolio-page {
+        max-width: var(--max-width);
+        margin: 0 auto;
+    }
+
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: var(--space-6);
+    }
+
+    @media (max-width: 768px) {
+        .project-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

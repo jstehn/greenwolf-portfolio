@@ -1,49 +1,227 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import resume from "../data/resume.json";
+
+const posts = (await getCollection("blog"))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+
+const featuredProjects = resume.projects.slice(0, 3);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-content">
+			<p class="hero-greeting">Hi, I'm</p>
+			<h1 class="hero-name">{resume.basics.name}</h1>
+			<p class="hero-label">{resume.basics.label}</p>
+			<p class="hero-summary">
+				{resume.basics.summary.split(".").slice(0, 2).join(".") + "."}
 			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+			<div class="hero-actions">
+				<a href="/resume" class="btn btn-primary">
+					<svg
+						viewBox="0 0 24 24"
+						width="16"
+						height="16"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path
+							d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+						></path>
+						<polyline points="14 2 14 8 20 8"></polyline>
+						<line x1="16" y1="13" x2="8" y2="13"></line>
+						<line x1="16" y1="17" x2="8" y2="17"></line>
+						<polyline points="10 9 9 9 8 9"></polyline>
+					</svg>
+					View Resume
+				</a>
+				<a href="/portfolio" class="btn btn-secondary">
+					See My Work
+					<svg
+						viewBox="0 0 24 24"
+						width="16"
+						height="16"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<line x1="5" y1="12" x2="19" y2="12"></line><polyline
+							points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured Projects -->
+	<section class="section">
+		<div class="section-header">
+			<h2 class="section-title">Featured Work</h2>
+			<p class="section-subtitle">Recent projects and contributions</p>
+		</div>
+		<div class="project-grid">
+			{
+				featuredProjects.map((project) => (
+					<ProjectCard
+						title={project.name}
+						description={project.summary}
+						tags={project.keywords}
+						url={project.url}
+					/>
+				))
+			}
+		</div>
+		<div class="section-cta">
+			<a href="/portfolio" class="btn btn-secondary"
+				>View All Projects →</a
+			>
+		</div>
+	</section>
+
+	<!-- Latest Blog Posts -->
+	<section class="section">
+		<div class="section-header">
+			<h2 class="section-title">Latest Posts</h2>
+			<p class="section-subtitle">Thoughts, tutorials, and learnings</p>
+		</div>
+		<div class="post-list">
+			{
+				posts.map((post) => (
+					<a href={`/blog/${post.id}/`} class="post-item">
+						<div class="post-meta">
+							<FormattedDate date={post.data.pubDate} />
+						</div>
+						<h3 class="post-title">{post.data.title}</h3>
+						<p class="post-desc">{post.data.description}</p>
+					</a>
+				))
+			}
+		</div>
+		<div class="section-cta">
+			<a href="/blog" class="btn btn-secondary">Read All Posts →</a>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	/* Hero */
+	.hero {
+		padding: var(--space-16) 0 var(--space-20);
+	}
+
+	.hero-content {
+		max-width: 640px;
+	}
+
+	.hero-greeting {
+		font-size: var(--text-lg);
+		font-weight: 500;
+		color: var(--color-accent);
+		margin: 0 0 var(--space-2);
+	}
+
+	.hero-name {
+		font-size: var(--text-5xl);
+		font-weight: 700;
+		margin: 0 0 var(--space-3);
+		letter-spacing: -0.03em;
+		line-height: 1.1;
+	}
+
+	.hero-label {
+		font-size: var(--text-xl);
+		color: var(--color-text-secondary);
+		font-weight: 400;
+		margin: 0 0 var(--space-6);
+	}
+
+	.hero-summary {
+		font-size: var(--text-base);
+		color: var(--color-text-secondary);
+		line-height: 1.8;
+		margin: 0 0 var(--space-8);
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: var(--space-4);
+		flex-wrap: wrap;
+	}
+
+	/* Project Grid */
+	.project-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+		gap: var(--space-6);
+	}
+
+	/* Section CTA */
+	.section-cta {
+		margin-top: var(--space-8);
+		text-align: center;
+	}
+
+	/* Post List */
+	.post-list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+	}
+
+	.post-item {
+		display: block;
+		padding: var(--space-5) var(--space-6);
+		border-radius: var(--radius-lg);
+		text-decoration: none;
+		transition: all var(--transition-base);
+		border: 1px solid transparent;
+	}
+
+	.post-item:hover {
+		background: var(--color-bg-alt);
+		border-color: var(--color-border);
+	}
+
+	.post-meta {
+		font-size: var(--text-sm);
+		color: var(--color-text-muted);
+		margin-bottom: var(--space-1);
+	}
+
+	.post-title {
+		font-size: var(--text-xl);
+		font-weight: 600;
+		margin: 0 0 var(--space-2);
+		color: var(--color-text);
+		transition: color var(--transition-fast);
+	}
+
+	.post-item:hover .post-title {
+		color: var(--color-accent);
+	}
+
+	.post-desc {
+		font-size: var(--text-sm);
+		color: var(--color-text-secondary);
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			padding: var(--space-10) 0 var(--space-12);
+		}
+
+		.project-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
