@@ -6,10 +6,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "postbuild": "node scripts/generate-pdf.mjs",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.7.0",
@@ -18,6 +21,7 @@
   },
   "devDependencies": {
     "puppeteer": "^24.37.5",
-    "serve-handler": "^6.1.6"
+    "serve-handler": "^6.1.6",
+    "wrangler": "^4.68.0"
   }
 }
