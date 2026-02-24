@@ -14,7 +14,7 @@ function formatDate(dateStr: string): string {
 const defaultDraft = drafts.find((d) => d.id === defaultDraftId)!;
 const { basics } = defaultDraft.data;
 const defaultName = basics.name.toLowerCase().replace(/[^a-z0-9]/g, "-");
-const defaultPdfUrl = `/${defaultName}-resume-${defaultDraft.id}.pdf`;
+const defaultPdfUrl = `/resumes/${defaultName}-resume-${defaultDraft.id}.pdf`;
 ---
 
 <BaseLayout title={`Resume — ${basics.name}`} description={basics.label}>
