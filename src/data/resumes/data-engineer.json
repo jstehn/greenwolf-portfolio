@@ -3,7 +3,7 @@
         "name": "Jack Stehn",
         "label": "Data Engineer",
         "email": "jack@ste.hn",
-        "summary": "Data Engineer with a strong foundation in architecting scalable, production-grade data platforms. Expert in orchestrating end-to-end ELT/ETL pipelines (Dagster, dbt, dlt), cloud infrastructure (AWS, GCP), and modern data warehousing. I bring a software engineering mindset to data teams—championing CI/CD, testing, and modular design to build systems that are maintainable, observable, and directly impactful.",
+        "summary": "Data Engineer with a strong foundation in architecting scalable, production-grade data platforms. I bring a software engineering mindset to orchestrating end-to-end ELT/ETL pipelines and modern data warehousing. I focus on championing CI/CD, testing, and modular design to build systems that are maintainable, observable, and impactful.",
         "location": {
             "city": "San Francisco",
             "region": "California",

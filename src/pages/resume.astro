@@ -37,6 +37,29 @@ const defaultPdfUrl = `/${defaultName}-resume-${defaultDraft.id}.pdf`;
                         ></path><circle cx="12" cy="10" r="3"></circle>
                     </svg>
                     {basics.location.city}, {basics.location.region}
+                    <span style="margin: 0 var(--space-2);">•</span>
+                    <a
+                        href={`mailto:${basics.email}`}
+                        class="profile-link"
+                        style="color: inherit; text-decoration: none;"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            width="16"
+                            height="16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                            ></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        {basics.email}
+                    </a>
                 </p>
                 <div class="resume-profiles">
                     {
@@ -180,7 +203,7 @@ const defaultPdfUrl = `/${defaultName}-resume-${defaultDraft.id}.pdf`;
                         <section class="resume-section">
                             <h2 class="resume-section-title">Experience</h2>
                             <div class="timeline">
-                                {work.map((job) => (
+                                {work.map((job: any) => (
                                     <div class="timeline-item">
                                         <div class="timeline-header">
                                             <div>
@@ -200,14 +223,16 @@ const defaultPdfUrl = `/${defaultName}-resume-${defaultDraft.id}.pdf`;
                                         </div>
                                         {job.highlights && (
                                             <ul class="timeline-highlights">
-                                                {job.highlights.map((h) => (
-                                                    <li
-                                                        set:html={h.replace(
-                                                            /\*\*(.*?)\*\*/g,
-                                                            "<strong>$1</strong>"
-                                                        )}
-                                                    />
-                                                ))}
+                                                {job.highlights.map(
+                                                    (h: any) => (
+                                                        <li
+                                                            set:html={h.replace(
+                                                                /\*\*(.*?)\*\*/g,
+                                                                "<strong>$1</strong>"
+                                                            )}
+                                                        />
+                                                    )
+                                                )}
                                             </ul>
                                         )}
                                     </div>
@@ -218,7 +243,7 @@ const defaultPdfUrl = `/${defaultName}-resume-${defaultDraft.id}.pdf`;
                         {/* Education */}
                         <section class="resume-section">
                             <h2 class="resume-section-title">Education</h2>
-                            {education.map((edu) => (
+                            {education.map((edu: any) => (
                                 <div class="timeline-item">
                                     <div class="timeline-header">
                                         <div>
@@ -252,13 +277,13 @@ const defaultPdfUrl = `/${defaultName}-resume-${defaultDraft.id}.pdf`;
                         <section class="resume-section">
                             <h2 class="resume-section-title">Skills</h2>
                             <div class="skills-grid">
-                                {skills.map((group) => (
+                                {skills.map((group: any) => (
                                     <div class="skill-group">
                                         <h4 class="skill-group-name">
                                             {group.name}
                                         </h4>
                                         <div class="tag-list">
-                                            {group.keywords.map((kw) => (
+                                            {group.keywords.map((kw: any) => (
                                                 <span class="tag">{kw}</span>
                                             ))}
                                         </div>
@@ -271,7 +296,7 @@ const defaultPdfUrl = `/${defaultName}-resume-${defaultDraft.id}.pdf`;
                         {awards && awards.length > 0 && (
                             <section class="resume-section">
                                 <h2 class="resume-section-title">Awards</h2>
-                                {awards.map((award) => (
+                                {awards.map((award: any) => (
                                     <div class="award-item">
                                         <div class="timeline-header">
                                             <div>
@@ -305,7 +330,7 @@ const defaultPdfUrl = `/${defaultName}-resume-${defaultDraft.id}.pdf`;
                                     Volunteer & Community
                                 </h2>
                                 <div class="timeline">
-                                    {volunteer.map((vol) => (
+                                    {volunteer.map((vol: any) => (
                                         <div class="timeline-item">
                                             <div class="timeline-header">
                                                 <div>
@@ -337,14 +362,16 @@ const defaultPdfUrl = `/${defaultName}-resume-${defaultDraft.id}.pdf`;
                                             )}
                                             {vol.highlights && (
                                                 <ul class="timeline-highlights">
-                                                    {vol.highlights.map((h) => (
-                                                        <li
-                                                            set:html={h.replace(
-                                                                /\*\*(.*?)\*\*/g,
-                                                                "<strong>$1</strong>"
-                                                            )}
-                                                        />
-                                                    ))}
+                                                    {vol.highlights.map(
+                                                        (h: any) => (
+                                                            <li
+                                                                set:html={h.replace(
+                                                                    /\*\*(.*?)\*\*/g,
+                                                                    "<strong>$1</strong>"
+                                                                )}
+                                                            />
+                                                        )
+                                                    )}
                                                 </ul>
                                             )}
                                         </div>

@@ -3,7 +3,7 @@
         "name": "Jack Stehn",
         "label": "Machine Learning Engineer",
         "email": "jack@ste.hn",
-        "summary": "Machine Learning Engineer specializing in building and deploying production ML systems end-to-end. From predictive risk models (Logistic Regression, Deep Learning) and NLP pipelines to scalable MLOps infrastructure, I bridge the gap between 'notebook data science' and production-ready systems. I bring strong software engineering practices—CI/CD, unit testing, and modular design—to ensure models are explainable, maintainable, and directly impactful at scale.",
+        "summary": "Machine Learning Engineer specializing in building and deploying production ML systems end-to-end. I bridge the gap between 'notebook data science' and production-ready systems by bringing strong software engineering practices to predictive modeling and scalable MLOps infrastructure. I focus on ensuring models are explainable, maintainable, and directly impactful at scale.",
         "location": {
             "city": "San Francisco",
             "region": "California",

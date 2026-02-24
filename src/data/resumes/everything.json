@@ -5,7 +5,7 @@
     "label": "Machine Learning Engineer | Data Engineer | Data Scientist",
     "email": "jack@ste.hn",
     "image": "https://ste.hn/vcard/portrait.jpg",
-    "summary": "High-agency Data Professional with a unique background blending rigorous social science research with production-grade engineering. My experiences, including graduating top of my class at Cal after navigating homelessness, gave me a unique perspective and a drive to build useful, ethical tools. I specialize in bridging the gap between 'notebook data science' and scalable infrastructure. My core expertise lies in architecting end-to-end data systems—from raw ingestion (Dagster/dbt) and warehousing (BigQuery/Athena) to deploying predictive models (Propensity Scoring, NLP, Churn) that drive revenue. I bring a software engineering mindset to data teams, championing CI/CD, unit testing, and modular design. Whether acting as a solo data lead or a core contributor in high-growth startups, I focus on untangling complexity to build tools that are explainable, maintainable, and directly impactful.",
+    "summary": "High-agency Data Professional specializing in bridging the gap between 'notebook data science' and production-grade scalable infrastructure. I architect end-to-end systems—from raw ingestion to deploying predictive models that drive revenue. I bring a software engineering mindset to data teams, championing CI/CD, unit testing, and modular design to untangle complexity and build maintainable tools.",
     "location": {
       "city": "San Francisco",
       "region": "California",

@@ -161,6 +161,9 @@ const { basics: db, work, education } = draft.data as any;
             <p class="resume-label">{db.label}</p>
             <div class="resume-contact">
                 <span>{db.location.city}, {db.location.region}</span>
+                <span>
+                    <a href={`mailto:${db.email}`}>{db.email}</a>
+                </span>
                 {
                     db.profiles.map((profile: any) => (
                         <span>
@@ -227,6 +230,11 @@ const { basics: db, work, education } = draft.data as any;
                                 <p class="timeline-org">
                                     {edu.studyType} in {edu.area}
                                 </p>
+                                {edu.gpa && (
+                                    <p style="margin: 4px 0 0; font-size: 10pt; color: var(--color-text-secondary); font-style: italic;">
+                                        GPA: {edu.gpa}
+                                    </p>
+                                )}
                             </div>
                             <div class="timeline-date">
                                 {formatDate(edu.startDate)} —{" "}
