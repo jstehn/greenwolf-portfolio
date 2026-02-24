@@ -4,13 +4,39 @@ import FormattedDate from "../components/FormattedDate.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-import resume from "../data/resume.json";
+import resume from "../data/resumes/everything.json";
 
 const posts = (await getCollection("blog"))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 3);
 
 const featuredProjects = resume.projects.slice(0, 3);
+
+// Abridged reference highlights for the cycling testimonial
+const testimonials = (resume.references || []).map((ref: any) => {
+	// Extract the person's name (before the parenthetical)
+	const namePart = ref.name.split("(")[0].trim();
+	// Extract their role/title from after the dash
+	const rolePart = ref.name.includes(" - ")
+		? ref.name.split(" - ").pop()?.trim()
+		: "";
+	// Pick 1-2 punchy sentences from the reference
+	const sentences = ref.reference.split(/(?<=\.)\s+/);
+	// Find the most impactful sentence (prefer shorter, recommendation-style ones)
+	const highlight =
+		sentences.length <= 2
+			? ref.reference
+			: sentences.find((s: string) =>
+					/recommend|invaluable|exceptional|asset|outstanding|capable|top/i.test(
+						s
+					)
+			  ) || sentences[sentences.length - 1];
+	return {
+		name: namePart,
+		role: rolePart,
+		quote: highlight.trim(),
+	};
+});
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -60,6 +86,81 @@ const featuredProjects = resume.projects.slice(0, 3);
 			</div>
 		</div>
 	</section>
+
+	<!-- Testimonials -->
+	{
+		testimonials.length > 0 && (
+			<section class="section testimonial-section">
+				<div class="testimonial-carousel" aria-label="Testimonials">
+					<div class="testimonial-track">
+						{testimonials.map((t: any, i: number) => (
+							<div
+								class={`testimonial-slide ${
+									i === 0 ? "active" : ""
+								}`}
+								data-index={i}
+								aria-hidden={i === 0 ? "false" : "true"}
+							>
+								<blockquote class="testimonial-quote">
+									<svg
+										class="testimonial-icon"
+										viewBox="0 0 24 24"
+										width="28"
+										height="28"
+										fill="currentColor"
+										opacity="0.15"
+									>
+										<path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+									</svg>
+									<p>{t.quote}</p>
+								</blockquote>
+								<div class="testimonial-author">
+									<button
+										class="testimonial-nav testimonial-prev"
+										aria-label="Previous testimonial"
+									>
+										<svg
+											viewBox="0 0 24 24"
+											width="14"
+											height="14"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<polyline points="15 18 9 12 15 6" />
+										</svg>
+									</button>
+									<div>
+										<p class="testimonial-name">{t.name}</p>
+										{t.role && (
+											<p class="testimonial-role">
+												{t.role}
+											</p>
+										)}
+									</div>
+									<button
+										class="testimonial-nav testimonial-next"
+										aria-label="Next testimonial"
+									>
+										<svg
+											viewBox="0 0 24 24"
+											width="14"
+											height="14"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<polyline points="9 18 15 12 9 6" />
+										</svg>
+									</button>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+		)
+	}
 
 	<!-- Featured Projects -->
 	<section class="section">
@@ -224,4 +325,161 @@ const featuredProjects = resume.projects.slice(0, 3);
 			grid-template-columns: 1fr;
 		}
 	}
+
+	/* Testimonial Carousel */
+	.testimonial-section {
+		padding-top: 0;
+		padding-bottom: var(--space-8);
+	}
+
+	.testimonial-carousel {
+		position: relative;
+		max-width: 700px;
+		margin: 0 auto;
+	}
+
+	.testimonial-track {
+		position: relative;
+		height: 160px;
+		overflow: hidden;
+	}
+
+	.testimonial-slide {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		opacity: 0;
+		transform: translateY(8px);
+		transition: opacity var(--transition-slow),
+			transform var(--transition-slow);
+		pointer-events: none;
+	}
+
+	.testimonial-slide.active {
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+	.testimonial-quote {
+		position: relative;
+		border: none;
+		padding: var(--space-5) var(--space-6) var(--space-5);
+		margin: 0 0 var(--space-3);
+		background: var(--color-bg-alt);
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--color-border-light);
+		font-style: normal;
+	}
+
+	.testimonial-icon {
+		position: absolute;
+		top: var(--space-4);
+		left: var(--space-5);
+		color: var(--color-accent);
+	}
+
+	.testimonial-quote p {
+		font-size: var(--text-sm);
+		color: var(--color-text-secondary);
+		line-height: 1.7;
+		margin: 0;
+		padding-left: var(--space-8);
+	}
+
+	.testimonial-author {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: var(--space-3);
+		padding-right: var(--space-4);
+	}
+
+	.testimonial-name {
+		font-size: var(--text-sm);
+		font-weight: 600;
+		color: var(--color-text);
+		margin: 0;
+	}
+
+	.testimonial-role {
+		font-size: var(--text-xs);
+		color: var(--color-text-muted);
+		margin: var(--space-1) 0 0;
+	}
+
+	.testimonial-nav {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 24px;
+		height: 24px;
+		border: none;
+		background: none;
+		color: var(--color-text-muted);
+		cursor: pointer;
+		padding: 0;
+		border-radius: 50%;
+		transition: color var(--transition-fast),
+			background var(--transition-fast);
+		flex-shrink: 0;
+	}
+
+	.testimonial-nav:hover {
+		color: var(--color-accent);
+		background: var(--color-bg-alt);
+	}
 </style>
+
+<script>
+	function initTestimonialCarousel() {
+		const slides =
+			document.querySelectorAll<HTMLElement>(".testimonial-slide");
+		if (slides.length === 0) return;
+
+		let current = 0;
+		let interval: ReturnType<typeof setInterval>;
+
+		function goTo(index: number) {
+			slides[current].classList.remove("active");
+			slides[current].setAttribute("aria-hidden", "true");
+			current = ((index % slides.length) + slides.length) % slides.length;
+			slides[current].classList.add("active");
+			slides[current].setAttribute("aria-hidden", "false");
+		}
+
+		function next() {
+			goTo(current + 1);
+		}
+		function prev() {
+			goTo(current - 1);
+		}
+
+		// Arrow click handlers (delegated)
+		const carousel = document.querySelector(".testimonial-carousel");
+		carousel?.addEventListener("click", (e) => {
+			const btn = (e.target as HTMLElement).closest(".testimonial-nav");
+			if (!btn) return;
+			if (btn.classList.contains("testimonial-prev")) prev();
+			else if (btn.classList.contains("testimonial-next")) next();
+			resetInterval();
+		});
+
+		function startInterval() {
+			interval = setInterval(next, 6000);
+		}
+		function resetInterval() {
+			clearInterval(interval);
+			startInterval();
+		}
+
+		carousel?.addEventListener("mouseenter", () => clearInterval(interval));
+		carousel?.addEventListener("mouseleave", startInterval);
+
+		startInterval();
+	}
+
+	initTestimonialCarousel();
+	document.addEventListener("astro:after-swap", initTestimonialCarousel);
+</script>

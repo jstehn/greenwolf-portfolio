@@ -1,0 +1,179 @@
+{
+    "basics": {
+        "name": "Jack Stehn",
+        "label": "Software Engineer",
+        "email": "jack@ste.hn",
+        "summary": "Software Engineer with deep expertise in building production systems at the intersection of data and software. From full-stack applications and API integrations to CI/CD pipelines and scalable cloud infrastructure, I bring strong engineering practices—testing, modular design, and clean code—to every project. Experienced in leading cross-functional technical initiatives in high-growth environments.",
+        "location": {
+            "city": "San Francisco",
+            "region": "California",
+            "countryCode": "US"
+        },
+        "profiles": [
+            {
+                "network": "LinkedIn",
+                "username": "jack-stehn",
+                "url": "https://www.linkedin.com/in/jack-stehn"
+            },
+            {
+                "network": "GitHub",
+                "username": "jstehn",
+                "url": "https://github.com/jstehn"
+            },
+            {
+                "network": "html5",
+                "username": "ste.hn",
+                "url": "https://ste.hn/"
+            }
+        ]
+    },
+    "work": [
+        {
+            "name": "Caliber Public Schools",
+            "position": "Data Scientist (Lead: Data Systems, Platform Engineering) - Ed Pioneers Fellow",
+            "startDate": "2024-09-01",
+            "endDate": "2025-10-01",
+            "location": "Richmond, California",
+            "highlights": [
+                "**Platform Architecture:** Architected and built a scalable data platform on GCP, orchestrating automated pipelines using Dagster, dbt, and dlt with comprehensive test coverage.",
+                "**API Integration & Interoperability:** Solved complex system interoperability challenges by designing integrations between Schoolmint and PowerSchool. Reverse-engineered undocumented APIs to create a unified data model.",
+                "**Engineering Maturity (ROI):** Built a custom automated data quality framework, reducing manual consistency checks from months of annual work to seconds.",
+                "**Data Democratization:** Updated the organization's data security policy and designed training modules, empowering non-technical staff to access real-time metrics."
+            ]
+        },
+        {
+            "name": "SetSail",
+            "position": "Data Scientist (Infrastructure, ML Systems)",
+            "startDate": "2021-08-01",
+            "endDate": "2023-02-01",
+            "location": "San Mateo, California",
+            "highlights": [
+                "**Pipeline Architecture (AWS):** Led a critical overhaul of the AWS data infrastructure (S3, Athena, EMR). Implemented 'SQL Push-down' strategies and asynchronous DAGs, reducing data processing latency by 75% and scaling to multi-terabyte datasets.",
+                "**Engineering Best Practices:** Championed the adoption of CI/CD pipelines (GitHub Actions), unit testing (pytest), and Agile methodologies within the data science team.",
+                "**Scalable Data Modeling:** Architected scalable Star Schema data models and optimized ETL/ELT processes, ensuring data readiness for LLM integration.",
+                "**Business Impact:** Contributed to product enhancements that achieved 33% faster ramp times, 16% higher revenue, and 15x ROI for customers.",
+                "**Cross-Functional Leadership:** Collaborated with Engineering, Product, and Support teams to spec out large-scale infrastructure restructuring.",
+                "**Technical Consulting:** Acted as a technical consultant for enterprise customers, diagnosing complex data discrepancies and proposing architectural solutions."
+            ]
+        },
+        {
+            "name": "Los Medanos College",
+            "position": "Full Stack Engineer",
+            "startDate": "2019-05-01",
+            "endDate": "2019-08-01",
+            "location": "Pittsburg, California",
+            "highlights": [
+                "**Full Stack Development:** Independently designed and developed a web application (Python, JavaScript, PHP, PostgreSQL) to guide student program selection.",
+                "**Data Acquisition:** Built a database of 500+ university programs via web scraping (Beautiful Soup) and rigorous data cleaning.",
+                "**UX/UI:** Created an intuitive management dashboard for non-technical staff.",
+                "**Stakeholder Consulting:** Consulted with college stakeholders (district, counselors) to define user needs."
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of California, Berkeley",
+            "area": "Data Science (Domain Emphasis: Quantitative Social Science)",
+            "studyType": "Bachelor of Arts",
+            "startDate": "2019-08-01",
+            "endDate": "2021-05-01",
+            "gpa": "4.00/4.00",
+            "summary": "Highest Distinction (Summa cum laude). Outstanding Data Science Undergraduate Award (Top of Class)."
+        }
+    ],
+    "skills": [
+        {
+            "name": "Software Engineering & DevOps Practices",
+            "keywords": [
+                "API Utilization",
+                "Production Code Quality/Practices",
+                "Object-Oriented Programming (OOP)",
+                "Software Design Patterns",
+                "Testing (Unit, Intg, E2E, Pytest)",
+                "CI/CD Pipelines (GitHub Actions)",
+                "Version Control (Git, GitHub)",
+                "Agile Methods (Scrum, Kanban)",
+                "Code Review & Collaboration"
+            ]
+        },
+        {
+            "name": "Programming & Core Data Skills",
+            "keywords": [
+                "Python (Pandas, NumPy, SciPy)",
+                "SQL (PostgreSQL, BigQuery)",
+                "Bash/Shell Scripting",
+                "Feature Engineering"
+            ]
+        },
+        {
+            "name": "Data Engineering & Cloud Platforms",
+            "keywords": [
+                "AWS Cloud (EC2, S3, Lambda, Athena)",
+                "GCP Cloud (BigQuery, GCS)",
+                "Data Pipelines (Dagster, dbt, dlt)",
+                "Data Warehousing (BigQuery, Athena)",
+                "Database Modeling (Star, Snowflake)",
+                "ETL/ELT Design & Implementation",
+                "API Design & Integration",
+                "Docker & Containerization"
+            ]
+        },
+        {
+            "name": "Familiar Technologies & Other Tools",
+            "keywords": [
+                "Java",
+                "JavaScript",
+                "HTML/CSS",
+                "C++ (basics)",
+                "PHP (basics)",
+                "Databases (PostgreSQL, MySQL)",
+                "Web Scraping (Beautiful Soup, Selenium)",
+                "Apache Spark (PySpark basics)",
+                "Jupyter Notebooks & Lab"
+            ]
+        },
+        {
+            "name": "Generative AI & LLMs",
+            "keywords": [
+                "Prompt Engineering",
+                "LLM Fine-tuning",
+                "Retrieval Augmented Generation",
+                "LangChain",
+                "LangGraph",
+                "Agentic AI",
+                "LLM API Integration (OpenAI)"
+            ]
+        },
+        {
+            "name": "Collaboration & Professional Skills",
+            "keywords": [
+                "Team Leadership & Mentoring",
+                "Cross-functional Collaboration",
+                "Stakeholder Comms & Management",
+                "Requirements Elicitation/Define",
+                "Project Management (Agile)",
+                "Technical Documentation/Reporting"
+            ]
+        }
+    ],
+    "awards": [
+        {
+            "title": "2020-2021 Outstanding Data Science Undergraduate Award",
+            "date": "2021-05-21",
+            "awarder": "UC Berkeley",
+            "summary": "Recognized for excellence in Data Science undergraduate studies, research, and community contributions at UC Berkeley."
+        }
+    ],
+    "volunteer": [
+        {
+            "organization": "Education Pioneers",
+            "position": "Impact Fellow (Placement @ Caliber Public Schools)",
+            "startDate": "2024-09-01",
+            "endDate": "2025-09-01",
+            "summary": "Selected for national fellowship applying engineering & leadership skills to advance educational equity.",
+            "highlights": [
+                "**Capacity Building:** Building organizational capacity through strategic engineering projects at placement site."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,196 @@
+{
+    "basics": {
+        "name": "Jack Stehn",
+        "label": "Data Scientist",
+        "email": "jack@ste.hn",
+        "summary": "Data Scientist with a unique background blending rigorous social science research with production-grade engineering. Expert in the full ML lifecycle—from exploratory analysis and feature engineering to deploying predictive models (Propensity Scoring, NLP, Churn) that drive measurable business outcomes. I specialize in translating complex data into actionable insights and explainable models, backed by strong statistical foundations and ethical research practices.",
+        "location": {
+            "city": "San Francisco",
+            "region": "California",
+            "countryCode": "US"
+        },
+        "profiles": [
+            {
+                "network": "LinkedIn",
+                "username": "jack-stehn",
+                "url": "https://www.linkedin.com/in/jack-stehn"
+            },
+            {
+                "network": "GitHub",
+                "username": "jstehn",
+                "url": "https://github.com/jstehn"
+            },
+            {
+                "network": "html5",
+                "username": "ste.hn",
+                "url": "https://ste.hn/"
+            }
+        ]
+    },
+    "work": [
+        {
+            "name": "Caliber Public Schools",
+            "position": "Data Scientist (Lead: ML, Data Engineering, MLOps) - Ed Pioneers Fellow",
+            "startDate": "2024-09-01",
+            "endDate": "2025-10-01",
+            "location": "Richmond, California",
+            "highlights": [
+                "**Predictive ML & Risk Modeling:** Developed and deployed explainable ML models (Logistic Regression, Deep Learning) to predict staff turnover. Engineered a 'Risk Tolerance' configuration allowing non-technical leadership to adjust precision/recall thresholds based on quarterly hiring capacity.",
+                "**Strategic Leadership (Solo Data Lead):** Owned the full data lifecycle (DS, DE, ML) as the sole data scientist. Partnered directly with C-suite and department heads.",
+                "**Survey Design & Enrichment:** Leveraged data to enrich staff satisfaction surveys with demographic, work location, role, grade level, and tenure data, enabling highly segmented and actionable insights.",
+                "**Data Democratization:** Designed data literacy training modules, empowering school leaders to access real-time attendance and academic metrics without technical bottlenecks.",
+                "**Stakeholder Management:** Partnered with leadership on high-impact, data-driven solutions; presented findings to stakeholders including the Board of Directors."
+            ]
+        },
+        {
+            "name": "SetSail",
+            "position": "Data Scientist (ML, NLP, Causal Inference)",
+            "startDate": "2021-08-01",
+            "endDate": "2023-02-01",
+            "location": "San Mateo, California",
+            "highlights": [
+                "**Production ML (Revenue):** Developed and deployed production ML models for Propensity Scoring (deal closure probability) and Churn Modeling. Leveraged NLP on unstructured email metadata to identify sales signals.",
+                "**Business Impact:** Contributed to product enhancements that achieved 33% faster ramp times, 16% higher revenue, and 15x ROI for customers.",
+                "**Causal Analysis:** Performed deep causal inference studies to isolate specific sales behaviors that drive outcomes, influencing the product roadmap to focus on 'high-leverage' user actions.",
+                "**Scalable Data Modeling:** Architected scalable Star Schema data models and optimized ETL/ELT processes, ensuring data readiness for LLM integration.",
+                "**Technical Consulting:** Acted as a technical consultant for enterprise customers, diagnosing complex data discrepancies and proposing architectural solutions."
+            ]
+        },
+        {
+            "name": "UC Berkeley School of Public Health",
+            "position": "Data Science Research Team Lead",
+            "startDate": "2020-09-01",
+            "endDate": "2021-05-01",
+            "location": "Berkeley, California",
+            "highlights": [
+                "**Leadership:** Led data science components for mixed-methods studies on equity and public health (specifically violence against homeless youth). Managed a team of undergraduates.",
+                "**Unstructured Data:** Analyzed diverse unstructured and non-traditional datasets (qualitative interviews, geospatial data, text corpora, hand-drawn maps) requiring the development of novel data processing approaches.",
+                "**Geospatial Analysis:** Performed geospatial analysis (ArcGIS) to identify and visualize spatial violence patterns for non-technical stakeholders.",
+                "**Visualization:** Created interactive dashboards (Tableau, Plotly) to communicate findings to stakeholders.",
+                "**Interdisciplinary Collaboration:** Collaborated across disciplines (public health, psychology, sociology) ensuring ethical, robust research."
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of California, Berkeley",
+            "area": "Data Science (Domain Emphasis: Quantitative Social Science)",
+            "studyType": "Bachelor of Arts",
+            "startDate": "2019-08-01",
+            "endDate": "2021-05-01",
+            "gpa": "4.00/4.00",
+            "summary": "Highest Distinction (Summa cum laude). Outstanding Data Science Undergraduate Award (Top of Class)."
+        }
+    ],
+    "skills": [
+        {
+            "name": "Programming & Core Data Skills",
+            "keywords": [
+                "Python (Pandas, NumPy, SciPy)",
+                "SQL (PostgreSQL, BigQuery)",
+                "R",
+                "Statistical Analysis",
+                "Feature Engineering",
+                "Unstructured Data Analysis",
+                "Excel for Analysis"
+            ]
+        },
+        {
+            "name": "Machine Learning - Predictive & Classical",
+            "keywords": [
+                "Propensity Scoring",
+                "Churn Modeling",
+                "Predictive Modeling",
+                "Predictive Risk Modeling",
+                "Classification & Regression",
+                "Clustering Algorithms",
+                "Recommender Systems",
+                "Bayesian Methods (PyMC3)",
+                "ML Frameworks (Scikit-learn)",
+                "Model Eval & Selection",
+                "Time Series Analysis/Forecasting"
+            ]
+        },
+        {
+            "name": "Deep Learning & Advanced AI",
+            "keywords": [
+                "Deep Learning (PyTorch, TF/Keras)",
+                "Neural Nets (CNN, RNN, Transformers)",
+                "Reinforcement Learning Concepts"
+            ]
+        },
+        {
+            "name": "Natural Language Processing (NLP)",
+            "keywords": [
+                "NLP (Sentiment, Topic Models)",
+                "Text Vectorization (TF-IDF, W2V)",
+                "NLP Libs (spaCy, NLTK, HuggingFace)",
+                "Info Extraction & Entity Recog."
+            ]
+        },
+        {
+            "name": "Research, Experimentation & Ethics",
+            "keywords": [
+                "Explainable ML",
+                "Experimental Design (A/B)",
+                "Causal Inference Methods",
+                "Quantitative & Qualitative Data",
+                "Survey Design & Analysis",
+                "Statistical Significance Tests",
+                "Ethical AI & Data Bias Analysis",
+                "Data Privacy & Security"
+            ]
+        },
+        {
+            "name": "Data Visualization & BI Tools",
+            "keywords": [
+                "Plotly (Dash for web apps)",
+                "Tableau",
+                "Looker Studio",
+                "Matplotlib & Seaborn Graphics",
+                "Geospatial Viz (ArcGIS, GeoPandas)",
+                "Interactive Dashboard Design"
+            ]
+        },
+        {
+            "name": "Collaboration & Professional Skills",
+            "keywords": [
+                "Team Leadership & Mentoring",
+                "Cross-functional Collaboration",
+                "Stakeholder Comms & Management",
+                "Technical Documentation/Reporting",
+                "Presenting (Tech & Non-Tech)"
+            ]
+        }
+    ],
+    "awards": [
+        {
+            "title": "2020-2021 Outstanding Data Science Undergraduate Award",
+            "date": "2021-05-21",
+            "awarder": "UC Berkeley",
+            "summary": "Recognized for excellence in Data Science undergraduate studies, research, and community contributions at UC Berkeley."
+        }
+    ],
+    "volunteer": [
+        {
+            "organization": "Education Pioneers",
+            "position": "Impact Fellow (Placement @ Caliber Public Schools)",
+            "startDate": "2024-09-01",
+            "endDate": "2025-09-01",
+            "summary": "Selected for national fellowship applying data science & leadership skills to advance educational equity.",
+            "highlights": [
+                "**Leadership Development:** Applying data science & leadership skills to advance educational equity."
+            ]
+        },
+        {
+            "organization": "San Francisco Gay Men's Chorus",
+            "position": "Data Team Lead",
+            "startDate": "2023-12-01",
+            "summary": "Provide data-driven insights for policy-making and organizational growth through survey creation and analysis.",
+            "highlights": [
+                "**Team Leadership:** Led volunteer team providing data analysis for organizational strategy.",
+                "**Survey Analysis:** Designed & analyzed surveys (qual/quant) informing policy & growth."
+            ]
+        }
+    ]
+}

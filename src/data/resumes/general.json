@@ -1,0 +1,194 @@
+{
+    "basics": {
+        "name": "Jack Stehn",
+        "label": "Machine Learning Engineer | Data Engineer | Data Scientist",
+        "email": "jack@ste.hn",
+        "summary": "High-agency Data Professional bridging rigorous social science research with production-grade engineering. I specialize in architecting end-to-end data systems—from raw ingestion and warehousing to deploying predictive models that drive revenue. I bring a software engineering mindset to data teams, championing CI/CD, unit testing, and modular design.",
+        "location": {
+            "city": "San Francisco",
+            "region": "California",
+            "countryCode": "US"
+        },
+        "profiles": [
+            {
+                "network": "LinkedIn",
+                "username": "jack-stehn",
+                "url": "https://www.linkedin.com/in/jack-stehn"
+            },
+            {
+                "network": "GitHub",
+                "username": "jstehn",
+                "url": "https://github.com/jstehn"
+            },
+            {
+                "network": "html5",
+                "username": "ste.hn",
+                "url": "https://ste.hn/"
+            }
+        ]
+    },
+    "work": [
+        {
+            "name": "Caliber Public Schools",
+            "position": "Data Scientist (Lead: ML, Data Engineering, MLOps) - Ed Pioneers Fellow",
+            "startDate": "2024-09-01",
+            "endDate": "2025-10-01",
+            "location": "Richmond, California",
+            "highlights": [
+                "**Strategic Leadership (Solo Data Lead):** Owned the full data lifecycle (DS, DE, ML) as the sole data scientist. Partnered directly with C-suite and department heads to navigate a 'zero-to-one' environment.",
+                "**Predictive ML & Risk Modeling:** Developed and deployed explainable ML models to predict staff turnover. Engineered a 'Risk Tolerance' configuration allowing non-technical leadership to adjust precision/recall thresholds.",
+                "**Modern Data Stack Architecture:** Architected a scalable platform on GCP. Orchestrated ELT pipelines using Dagster, dbt, and dlt to ingest data from disparate SIS and HR platforms.",
+                "**Engineering Maturity (ROI):** Engineered a comprehensive People Team data pipeline, reducing manual consistency checks from months of collective annual work to seconds."
+            ]
+        },
+        {
+            "name": "SetSail",
+            "position": "Data Scientist (ML, Data Engineering, MLOps)",
+            "startDate": "2021-08-01",
+            "endDate": "2023-02-01",
+            "location": "San Mateo, California",
+            "highlights": [
+                "**Business Impact:** Contributed to product enhancements that achieved 33% faster ramp times, 16% higher revenue, and 15x ROI for customers.",
+                "**Production ML (Revenue):** Developed and deployed production ML models for Propensity Scoring and Churn Modeling. Leveraged NLP on unstructured email metadata to identify sales signals.",
+                "**Pipeline Architecture (AWS):** Led a critical overhaul of the AWS data infrastructure. Implemented 'SQL Push-down' strategies and asynchronous DAGs, reducing data processing latency by 75%.",
+                "**Engineering Best Practices:** Championed the adoption of CI/CD pipelines (GitHub Actions), unit testing (pytest), and Agile methodologies."
+            ]
+        },
+        {
+            "name": "UC Berkeley School of Public Health",
+            "position": "Data Science Research Team Lead",
+            "startDate": "2020-09-01",
+            "endDate": "2021-05-01",
+            "location": "Berkeley, California",
+            "highlights": [
+                "**Leadership:** Led data science components for mixed-methods studies on equity and public health. Managed a team of undergraduates.",
+                "**Unstructured Data:** Analyzed diverse unstructured and non-traditional datasets requiring the development of novel data processing approaches.",
+                "**Geospatial Analysis:** Performed geospatial analysis (ArcGIS) to identify and visualize spatial patterns for non-technical stakeholders."
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of California, Berkeley",
+            "area": "Data Science (Domain Emphasis: Quantitative Social Science)",
+            "studyType": "Bachelor of Arts",
+            "startDate": "2019-08-01",
+            "endDate": "2021-05-01",
+            "gpa": "4.00/4.00",
+            "summary": "Highest Distinction (Summa cum laude). Outstanding Data Science Undergraduate Award (Top of Class)."
+        }
+    ],
+    "skills": [
+        {
+            "name": "Programming & Core Data Skills",
+            "keywords": [
+                "Python (Pandas, NumPy, SciPy)",
+                "SQL (PostgreSQL, BigQuery)",
+                "R",
+                "Bash/Shell Scripting",
+                "Statistical Analysis",
+                "Feature Engineering"
+            ]
+        },
+        {
+            "name": "Machine Learning - Predictive & Classical",
+            "keywords": [
+                "Propensity Scoring",
+                "Churn Modeling",
+                "Predictive Risk Modeling",
+                "Classification & Regression",
+                "ML Frameworks (Scikit-learn)",
+                "Model Eval & Selection"
+            ]
+        },
+        {
+            "name": "Data Engineering & Cloud Platforms",
+            "keywords": [
+                "AWS Cloud (EC2, S3, Lambda, Athena)",
+                "GCP Cloud (BigQuery, GCS)",
+                "Data Pipelines (Dagster, dbt, dlt)",
+                "Data Warehousing (BigQuery, Athena)",
+                "ETL/ELT Design & Implementation",
+                "Docker & Containerization"
+            ]
+        },
+        {
+            "name": "Software Engineering & DevOps Practices",
+            "keywords": [
+                "Production Code Quality/Practices",
+                "Testing (Unit, Intg, E2E, Pytest)",
+                "CI/CD Pipelines (GitHub Actions)",
+                "Version Control (Git, GitHub)",
+                "Agile Methods (Scrum, Kanban)"
+            ]
+        },
+        {
+            "name": "Data Visualization & BI Tools",
+            "keywords": [
+                "Plotly (Dash for web apps)",
+                "Tableau",
+                "Looker Studio",
+                "Interactive Dashboard Design"
+            ]
+        },
+        {
+            "name": "Research, Experimentation & Ethics",
+            "keywords": [
+                "Explainable ML",
+                "Experimental Design (A/B)",
+                "Causal Inference Methods",
+                "Survey Design & Analysis",
+                "Data Privacy & Security"
+            ]
+        }
+    ],
+    "awards": [
+        {
+            "title": "2020-2021 Outstanding Data Science Undergraduate Award",
+            "date": "2021-05-21",
+            "awarder": "UC Berkeley",
+            "summary": "Recognized for excellence in Data Science undergraduate studies, research, and community contributions at UC Berkeley."
+        }
+    ],
+    "volunteer": [
+        {
+            "organization": "Education Pioneers",
+            "position": "Impact Fellow (Placement @ Caliber Public Schools)",
+            "startDate": "2024-09-01",
+            "endDate": "2025-09-01",
+            "summary": "Selected for national fellowship applying leadership/management skills to advance educational equity.",
+            "highlights": [
+                "**Leadership Development:** Applying data science & leadership skills to advance educational equity.",
+                "**Capacity Building:** Building organizational capacity through strategic data projects at placement site."
+            ]
+        },
+        {
+            "organization": "San Francisco Gay Men's Chorus",
+            "position": "Data Team Lead",
+            "startDate": "2023-12-01",
+            "summary": "Provide data-driven insights for policy-making and organizational growth through survey creation and analysis.",
+            "highlights": [
+                "**Team Leadership:** Led volunteer team providing data analysis for organizational strategy.",
+                "**Survey Analysis:** Designed & analyzed surveys (qual/quant) informing policy & growth."
+            ]
+        }
+    ],
+    "references": [
+        {
+            "name": "Brian Jimenez (Managed Jack directly at Caliber Public Schools) - Managing Director of People",
+            "reference": "Chosen from over 50 applicants and 5 finalists, Jack joined our organization at a pivotal moment and has been an invaluable team member ever since. Jack streamlined a survey and analysis process that previously took our team a month, developing a replicable system that now delivers actionable insights in just a few days. Jack is an easy choice for any team seeking a results-driven, collaborative data scientist who elevates both projects and people."
+        },
+        {
+            "name": "Darrin Gilkerson (Worked with Jack on different teams at SetSail) - Software Engineer at QVT Financial",
+            "reference": "Not only is Jack an extremely capable engineer and data scientist, they are also a collaborative team player who elevates everyone around them. Their contributions at SetSail were always valuable to the company—whether it was their huge role in our data pipeline migration, or countless bug fixes and feature implementations. I wholeheartedly recommend Jack for any data science position."
+        },
+        {
+            "name": "Danny Pan (Managed Jack directly at SetSail) - Data Science",
+            "reference": "Jack worked on a variety of projects that involved teasing out actionable insights from complex data sets, enhancing modeling capabilities through feature development and algorithm development, and building out a data ETL process that transformed the data infrastructure to help SetSail scale for enterprise customer needs. I highly recommend Jack as a Data Scientist and Data Engineer for any organization."
+        },
+        {
+            "name": "G. Allen Ratliff (Managed Jack directly at UC Berkeley SPH) - Assistant Professor of Social Work",
+            "reference": "Jack is a motivated self-starter who loves to accomplish project tasks while developing and implementing smooth processes in their work environments. Jack is an accomplished leader, utilizing problem-solving skills to support their own work and the work of their colleagues and peers. Jack is a leader who uses imagination, experience, and empathy to create sustainable processes."
+        }
+    ]
+}

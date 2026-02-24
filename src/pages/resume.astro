@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import resume from "../data/resume.json";
-
-const { basics, work, education, skills, awards, volunteer } = resume;
+import { drafts, defaultDraftId } from "../data/resumeDrafts";
 
 function formatDate(dateStr: string): string {
     const date = new Date(dateStr);
@@ -11,6 +9,10 @@ function formatDate(dateStr: string): string {
         year: "numeric",
     });
 }
+
+// Use the default draft for page metadata
+const defaultDraft = drafts.find((d) => d.id === defaultDraftId)!;
+const { basics } = defaultDraft.data;
 ---
 
 <BaseLayout title={`Resume — ${basics.name}`} description={basics.label}>
@@ -19,7 +21,7 @@ function formatDate(dateStr: string): string {
         <div class="resume-header">
             <div>
                 <h1>{basics.name}</h1>
-                <p class="resume-label">{basics.label}</p>
+                <p class="resume-label" id="resume-label">{basics.label}</p>
                 <p class="resume-location">
                     <svg
                         viewBox="0 0 24 24"
@@ -34,6 +36,61 @@ function formatDate(dateStr: string): string {
                     </svg>
                     {basics.location.city}, {basics.location.region}
                 </p>
+                <div class="resume-profiles">
+                    {
+                        basics.profiles.map((profile) => (
+                            <a
+                                href={profile.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="profile-link"
+                                title={
+                                    profile.network === "html5"
+                                        ? "Website"
+                                        : profile.network
+                                }
+                            >
+                                {profile.network === "LinkedIn" && (
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="16"
+                                        height="16"
+                                        fill="currentColor"
+                                    >
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                    </svg>
+                                )}
+                                {profile.network === "GitHub" && (
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="16"
+                                        height="16"
+                                        fill="currentColor"
+                                    >
+                                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                                    </svg>
+                                )}
+                                {profile.network === "html5" && (
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="16"
+                                        height="16"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="2" y1="12" x2="22" y2="12" />
+                                        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                                    </svg>
+                                )}
+                                {profile.network === "html5"
+                                    ? profile.username
+                                    : profile.network}
+                            </a>
+                        ))
+                    }
+                </div>
             </div>
             <a href="/resume.pdf" download class="btn btn-primary">
                 <svg
@@ -52,185 +109,303 @@ function formatDate(dateStr: string): string {
             </a>
         </div>
 
-        <!-- Summary -->
-        <section class="resume-section">
-            <h2 class="resume-section-title">Summary</h2>
-            <p class="resume-summary">{basics.summary}</p>
-        </section>
-
-        <!-- Experience -->
-        <section class="resume-section">
-            <h2 class="resume-section-title">Experience</h2>
-            <div class="timeline">
-                {
-                    work.map((job) => (
-                        <div class="timeline-item">
-                            <div class="timeline-header">
-                                <div>
-                                    <h3 class="timeline-title">
-                                        {job.position}
-                                    </h3>
-                                    <p class="timeline-org">
-                                        {job.name} · {job.location}
-                                    </p>
-                                </div>
-                                <span class="timeline-date">
-                                    {formatDate(job.startDate)} —{" "}
-                                    {job.endDate
-                                        ? formatDate(job.endDate)
-                                        : "Present"}
-                                </span>
-                            </div>
-                            {job.highlights && (
-                                <ul class="timeline-highlights">
-                                    {job.highlights.map((h) => (
-                                        <li
-                                            set:html={h.replace(
-                                                /\*\*(.*?)\*\*/g,
-                                                "<strong>$1</strong>"
-                                            )}
-                                        />
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section class="resume-section">
-            <h2 class="resume-section-title">Education</h2>
+        <!-- Draft Selector -->
+        <div
+            class="draft-selector"
+            role="tablist"
+            aria-label="Resume focus area"
+        >
             {
-                education.map((edu) => (
-                    <div class="timeline-item">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">
-                                    {edu.institution}
-                                </h3>
-                                <p class="timeline-org">
-                                    {edu.studyType} in {edu.area}
-                                </p>
-                                {edu.gpa && (
-                                    <p class="timeline-detail">
-                                        GPA: {edu.gpa}
-                                    </p>
-                                )}
-                                {edu.summary && (
-                                    <p class="timeline-detail">{edu.summary}</p>
-                                )}
-                            </div>
-                            <span class="timeline-date">
-                                {formatDate(edu.startDate)} —{" "}
-                                {formatDate(edu.endDate)}
-                            </span>
-                        </div>
-                    </div>
+                drafts.map((draft) => (
+                    <button
+                        class={`draft-btn ${
+                            draft.id === defaultDraftId ? "active" : ""
+                        }`}
+                        data-draft-id={draft.id}
+                        role="tab"
+                        aria-selected={
+                            draft.id === defaultDraftId ? "true" : "false"
+                        }
+                        aria-controls={`draft-${draft.id}`}
+                    >
+                        {draft.label}
+                    </button>
                 ))
             }
-        </section>
+        </div>
 
-        <!-- Skills -->
-        <section class="resume-section">
-            <h2 class="resume-section-title">Skills</h2>
-            <div class="skills-grid">
-                {
-                    skills.map((group) => (
-                        <div class="skill-group">
-                            <h4 class="skill-group-name">{group.name}</h4>
-                            <div class="tag-list">
-                                {group.keywords.map((kw) => (
-                                    <span class="tag">{kw}</span>
+        <!-- Draft Content Panels -->
+        {
+            drafts.map((draft) => {
+                const {
+                    basics: db,
+                    work,
+                    education,
+                    skills,
+                    awards,
+                    volunteer,
+                    references,
+                } = draft.data as any;
+                const isDefault = draft.id === defaultDraftId;
+                return (
+                    <div
+                        class={`draft-panel ${isDefault ? "active" : ""}`}
+                        id={`draft-${draft.id}`}
+                        data-draft-panel={draft.id}
+                        data-label={db.label}
+                        role="tabpanel"
+                        aria-hidden={isDefault ? "false" : "true"}
+                    >
+                        {/* Summary */}
+                        <section class="resume-section">
+                            <h2 class="resume-section-title">Summary</h2>
+                            <p class="resume-summary">{db.summary}</p>
+                        </section>
+
+                        {/* Experience */}
+                        <section class="resume-section">
+                            <h2 class="resume-section-title">Experience</h2>
+                            <div class="timeline">
+                                {work.map((job) => (
+                                    <div class="timeline-item">
+                                        <div class="timeline-header">
+                                            <div>
+                                                <h3 class="timeline-title">
+                                                    {job.position}
+                                                </h3>
+                                                <p class="timeline-org">
+                                                    {job.name} · {job.location}
+                                                </p>
+                                            </div>
+                                            <span class="timeline-date">
+                                                {formatDate(job.startDate)} —{" "}
+                                                {job.endDate
+                                                    ? formatDate(job.endDate)
+                                                    : "Present"}
+                                            </span>
+                                        </div>
+                                        {job.highlights && (
+                                            <ul class="timeline-highlights">
+                                                {job.highlights.map((h) => (
+                                                    <li
+                                                        set:html={h.replace(
+                                                            /\*\*(.*?)\*\*/g,
+                                                            "<strong>$1</strong>"
+                                                        )}
+                                                    />
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </div>
                                 ))}
                             </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
+                        </section>
 
-        <!-- Awards -->
-        {
-            awards && awards.length > 0 && (
-                <section class="resume-section">
-                    <h2 class="resume-section-title">Awards</h2>
-                    {awards.map((award) => (
-                        <div class="award-item">
-                            <div class="timeline-header">
-                                <div>
-                                    <h3 class="timeline-title">
-                                        {award.title}
-                                    </h3>
-                                    <p class="timeline-org">{award.awarder}</p>
-                                    {award.summary && (
-                                        <p class="timeline-detail">
-                                            {award.summary}
-                                        </p>
-                                    )}
-                                </div>
-                                {award.date && (
-                                    <span class="timeline-date">
-                                        {formatDate(award.date)}
-                                    </span>
-                                )}
-                            </div>
-                        </div>
-                    ))}
-                </section>
-            )
-        }
-
-        <!-- Volunteer -->
-        {
-            volunteer && volunteer.length > 0 && (
-                <section class="resume-section">
-                    <h2 class="resume-section-title">Volunteer & Community</h2>
-                    <div class="timeline">
-                        {volunteer.map((vol) => (
-                            <div class="timeline-item">
-                                <div class="timeline-header">
-                                    <div>
-                                        <h3 class="timeline-title">
-                                            {vol.position}
-                                        </h3>
-                                        <p class="timeline-org">
-                                            {vol.organization}
-                                        </p>
-                                    </div>
-                                    {vol.startDate && (
+                        {/* Education */}
+                        <section class="resume-section">
+                            <h2 class="resume-section-title">Education</h2>
+                            {education.map((edu) => (
+                                <div class="timeline-item">
+                                    <div class="timeline-header">
+                                        <div>
+                                            <h3 class="timeline-title">
+                                                {edu.institution}
+                                            </h3>
+                                            <p class="timeline-org">
+                                                {edu.studyType} in {edu.area}
+                                            </p>
+                                            {edu.gpa && (
+                                                <p class="timeline-detail">
+                                                    GPA: {edu.gpa}
+                                                </p>
+                                            )}
+                                            {edu.summary && (
+                                                <p class="timeline-detail">
+                                                    {edu.summary}
+                                                </p>
+                                            )}
+                                        </div>
                                         <span class="timeline-date">
-                                            {formatDate(vol.startDate)} —{" "}
-                                            {vol.endDate
-                                                ? formatDate(vol.endDate)
-                                                : "Present"}
+                                            {formatDate(edu.startDate)} —{" "}
+                                            {formatDate(edu.endDate)}
                                         </span>
-                                    )}
+                                    </div>
                                 </div>
-                                {vol.summary && (
-                                    <p class="vol-summary">{vol.summary}</p>
-                                )}
-                                {vol.highlights && (
-                                    <ul class="timeline-highlights">
-                                        {vol.highlights.map((h) => (
-                                            <li
-                                                set:html={h.replace(
-                                                    /\*\*(.*?)\*\*/g,
-                                                    "<strong>$1</strong>"
-                                                )}
-                                            />
-                                        ))}
-                                    </ul>
-                                )}
+                            ))}
+                        </section>
+
+                        {/* Skills */}
+                        <section class="resume-section">
+                            <h2 class="resume-section-title">Skills</h2>
+                            <div class="skills-grid">
+                                {skills.map((group) => (
+                                    <div class="skill-group">
+                                        <h4 class="skill-group-name">
+                                            {group.name}
+                                        </h4>
+                                        <div class="tag-list">
+                                            {group.keywords.map((kw) => (
+                                                <span class="tag">{kw}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </section>
+
+                        {/* Awards */}
+                        {awards && awards.length > 0 && (
+                            <section class="resume-section">
+                                <h2 class="resume-section-title">Awards</h2>
+                                {awards.map((award) => (
+                                    <div class="award-item">
+                                        <div class="timeline-header">
+                                            <div>
+                                                <h3 class="timeline-title">
+                                                    {award.title}
+                                                </h3>
+                                                <p class="timeline-org">
+                                                    {award.awarder}
+                                                </p>
+                                                {award.summary && (
+                                                    <p class="timeline-detail">
+                                                        {award.summary}
+                                                    </p>
+                                                )}
+                                            </div>
+                                            {award.date && (
+                                                <span class="timeline-date">
+                                                    {formatDate(award.date)}
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
+                            </section>
+                        )}
+
+                        {/* Volunteer */}
+                        {volunteer && volunteer.length > 0 && (
+                            <section class="resume-section">
+                                <h2 class="resume-section-title">
+                                    Volunteer & Community
+                                </h2>
+                                <div class="timeline">
+                                    {volunteer.map((vol) => (
+                                        <div class="timeline-item">
+                                            <div class="timeline-header">
+                                                <div>
+                                                    <h3 class="timeline-title">
+                                                        {vol.position}
+                                                    </h3>
+                                                    <p class="timeline-org">
+                                                        {vol.organization}
+                                                    </p>
+                                                </div>
+                                                {vol.startDate && (
+                                                    <span class="timeline-date">
+                                                        {formatDate(
+                                                            vol.startDate
+                                                        )}{" "}
+                                                        —{" "}
+                                                        {vol.endDate
+                                                            ? formatDate(
+                                                                  vol.endDate
+                                                              )
+                                                            : "Present"}
+                                                    </span>
+                                                )}
+                                            </div>
+                                            {vol.summary && (
+                                                <p class="vol-summary">
+                                                    {vol.summary}
+                                                </p>
+                                            )}
+                                            {vol.highlights && (
+                                                <ul class="timeline-highlights">
+                                                    {vol.highlights.map((h) => (
+                                                        <li
+                                                            set:html={h.replace(
+                                                                /\*\*(.*?)\*\*/g,
+                                                                "<strong>$1</strong>"
+                                                            )}
+                                                        />
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )}
+
+                        {/* References */}
+                        {references && references.length > 0 && (
+                            <section class="resume-section">
+                                <h2 class="resume-section-title">References</h2>
+                                <div class="references-grid">
+                                    {references.map((ref: any) => (
+                                        <div class="reference-card">
+                                            <blockquote class="reference-quote">
+                                                <p>"{ref.reference}"</p>
+                                            </blockquote>
+                                            <p class="reference-name">
+                                                {ref.name}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )}
                     </div>
-                </section>
-            )
+                );
+            })
         }
     </div>
 </BaseLayout>
+
+<script>
+    function initDraftSelector() {
+        const buttons =
+            document.querySelectorAll<HTMLButtonElement>(".draft-btn");
+        const panels = document.querySelectorAll<HTMLElement>(".draft-panel");
+        const label = document.getElementById("resume-label");
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const draftId = btn.dataset.draftId;
+                if (!draftId) return;
+
+                // Update button states
+                buttons.forEach((b) => {
+                    b.classList.remove("active");
+                    b.setAttribute("aria-selected", "false");
+                });
+                btn.classList.add("active");
+                btn.setAttribute("aria-selected", "true");
+
+                // Swap panels with fade
+                panels.forEach((panel) => {
+                    if (panel.dataset.draftPanel === draftId) {
+                        panel.classList.add("active");
+                        panel.setAttribute("aria-hidden", "false");
+                        // Update the label in the header
+                        if (label && panel.dataset.label) {
+                            label.textContent = panel.dataset.label;
+                        }
+                    } else {
+                        panel.classList.remove("active");
+                        panel.setAttribute("aria-hidden", "true");
+                    }
+                });
+            });
+        });
+    }
+
+    // Run on initial load and on Astro page transitions
+    initDraftSelector();
+    document.addEventListener("astro:after-swap", initDraftSelector);
+</script>
 
 <style>
     .resume-page {
@@ -246,7 +421,33 @@ function formatDate(dateStr: string): string {
         gap: var(--space-6);
         padding-bottom: var(--space-8);
         border-bottom: 1px solid var(--color-border);
-        margin-bottom: var(--space-8);
+        margin-bottom: var(--space-6);
+    }
+
+    /* Profile Links */
+    .resume-profiles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-4);
+        margin-top: var(--space-3);
+    }
+
+    .profile-link {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-size: var(--text-sm);
+        color: var(--color-text-muted);
+        text-decoration: none;
+        transition: color var(--transition-fast);
+    }
+
+    .profile-link:hover {
+        color: var(--color-accent);
+    }
+
+    .profile-link svg {
+        flex-shrink: 0;
     }
 
     .resume-header h1 {
@@ -257,6 +458,7 @@ function formatDate(dateStr: string): string {
         font-size: var(--text-lg);
         color: var(--color-text-secondary);
         margin: 0 0 var(--space-2);
+        transition: opacity var(--transition-fast);
     }
 
     .resume-location {
@@ -266,6 +468,71 @@ function formatDate(dateStr: string): string {
         font-size: var(--text-sm);
         color: var(--color-text-muted);
         margin: 0;
+    }
+
+    /* Draft Selector */
+    .draft-selector {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+        padding: var(--space-4) 0;
+        margin-bottom: var(--space-8);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .draft-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: var(--space-2) var(--space-5);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        font-family: var(--font-sans);
+        color: var(--color-text-secondary);
+        background: var(--color-bg-alt);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-full);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        white-space: nowrap;
+    }
+
+    .draft-btn:hover {
+        color: var(--color-accent);
+        border-color: var(--color-accent-subtle);
+        background: var(--color-accent-light);
+    }
+
+    .draft-btn.active {
+        color: var(--color-text-inverse);
+        background: var(--color-accent);
+        border-color: var(--color-accent);
+    }
+
+    .draft-btn.active:hover {
+        background: var(--color-accent-hover);
+        border-color: var(--color-accent-hover);
+        color: var(--color-text-inverse);
+    }
+
+    /* Draft Panels */
+    .draft-panel {
+        display: none;
+        animation: fadeIn var(--transition-slow) ease;
+    }
+
+    .draft-panel.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     /* Section */
@@ -407,6 +674,41 @@ function formatDate(dateStr: string): string {
         border: 1px solid var(--color-border-light);
     }
 
+    /* References */
+    .references-grid {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-6);
+    }
+
+    .reference-card {
+        padding: var(--space-6);
+        background: var(--color-bg-alt);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-border-light);
+    }
+
+    .reference-quote {
+        border-left: 3px solid var(--color-accent);
+        padding: 0 0 0 var(--space-5);
+        margin: 0 0 var(--space-4);
+        font-style: italic;
+    }
+
+    .reference-quote p {
+        font-size: var(--text-sm);
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    .reference-name {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--color-text);
+        margin: 0;
+    }
+
     @media (max-width: 768px) {
         .resume-header {
             flex-direction: column;
@@ -419,6 +721,15 @@ function formatDate(dateStr: string): string {
 
         .skills-grid {
             grid-template-columns: 1fr;
+        }
+
+        .draft-selector {
+            gap: var(--space-2);
+        }
+
+        .draft-btn {
+            font-size: var(--text-xs);
+            padding: var(--space-2) var(--space-3);
         }
     }
 </style>
