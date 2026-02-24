@@ -5,38 +5,13 @@ import ProjectCard from "../components/ProjectCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import resume from "../data/resumes/everything.json";
+import testimonials from "../data/testimonials.json";
 
 const posts = (await getCollection("blog"))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 3);
 
 const featuredProjects = resume.projects.slice(0, 3);
-
-// Abridged reference highlights for the cycling testimonial
-const testimonials = (resume.references || []).map((ref: any) => {
-	// Extract the person's name (before the parenthetical)
-	const namePart = ref.name.split("(")[0].trim();
-	// Extract their role/title from after the dash
-	const rolePart = ref.name.includes(" - ")
-		? ref.name.split(" - ").pop()?.trim()
-		: "";
-	// Pick 1-2 punchy sentences from the reference
-	const sentences = ref.reference.split(/(?<=\.)\s+/);
-	// Find the most impactful sentence (prefer shorter, recommendation-style ones)
-	const highlight =
-		sentences.length <= 2
-			? ref.reference
-			: sentences.find((s: string) =>
-					/recommend|invaluable|exceptional|asset|outstanding|capable|top/i.test(
-						s
-					)
-			  ) || sentences[sentences.length - 1];
-	return {
-		name: namePart,
-		role: rolePart,
-		quote: highlight.trim(),
-	};
-});
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -92,6 +67,21 @@ const testimonials = (resume.references || []).map((ref: any) => {
 		testimonials.length > 0 && (
 			<section class="section testimonial-section">
 				<div class="testimonial-carousel" aria-label="Testimonials">
+					<button
+						class="testimonial-nav testimonial-prev"
+						aria-label="Previous testimonial"
+					>
+						<svg
+							viewBox="0 0 24 24"
+							width="16"
+							height="16"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<polyline points="15 18 9 12 15 6" />
+						</svg>
+					</button>
 					<div class="testimonial-track">
 						{testimonials.map((t: any, i: number) => (
 							<div
@@ -115,48 +105,29 @@ const testimonials = (resume.references || []).map((ref: any) => {
 									<p>{t.quote}</p>
 								</blockquote>
 								<div class="testimonial-author">
-									<button
-										class="testimonial-nav testimonial-prev"
-										aria-label="Previous testimonial"
-									>
-										<svg
-											viewBox="0 0 24 24"
-											width="14"
-											height="14"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-										>
-											<polyline points="15 18 9 12 15 6" />
-										</svg>
-									</button>
-									<div>
-										<p class="testimonial-name">{t.name}</p>
-										{t.role && (
-											<p class="testimonial-role">
-												{t.role}
-											</p>
-										)}
-									</div>
-									<button
-										class="testimonial-nav testimonial-next"
-										aria-label="Next testimonial"
-									>
-										<svg
-											viewBox="0 0 24 24"
-											width="14"
-											height="14"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-										>
-											<polyline points="9 18 15 12 9 6" />
-										</svg>
-									</button>
+									<p class="testimonial-name">{t.name}</p>
+									{t.role && t.role.length > 0 && (
+										<p class="testimonial-role">{t.role}</p>
+									)}
 								</div>
 							</div>
 						))}
 					</div>
+					<button
+						class="testimonial-nav testimonial-next"
+						aria-label="Next testimonial"
+					>
+						<svg
+							viewBox="0 0 24 24"
+							width="16"
+							height="16"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<polyline points="9 18 15 12 9 6" />
+						</svg>
+					</button>
 				</div>
 			</section>
 		)
@@ -328,20 +299,25 @@ const testimonials = (resume.references || []).map((ref: any) => {
 
 	/* Testimonial Carousel */
 	.testimonial-section {
-		padding-top: 0;
-		padding-bottom: var(--space-8);
+		margin-top: calc(-1 * var(--space-8));
+		margin-bottom: var(--space-8);
 	}
 
 	.testimonial-carousel {
 		position: relative;
 		max-width: 700px;
 		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		gap: var(--space-3);
 	}
 
 	.testimonial-track {
 		position: relative;
-		height: 160px;
+		height: 200px;
 		overflow: hidden;
+		flex: 1;
+		min-width: 0;
 	}
 
 	.testimonial-slide {
@@ -389,10 +365,7 @@ const testimonials = (resume.references || []).map((ref: any) => {
 	}
 
 	.testimonial-author {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		gap: var(--space-3);
+		text-align: right;
 		padding-right: var(--space-4);
 	}
 
@@ -413,8 +386,8 @@ const testimonials = (resume.references || []).map((ref: any) => {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 24px;
-		height: 24px;
+		width: 28px;
+		height: 28px;
 		border: none;
 		background: none;
 		color: var(--color-text-muted);
@@ -422,13 +395,15 @@ const testimonials = (resume.references || []).map((ref: any) => {
 		padding: 0;
 		border-radius: 50%;
 		transition: color var(--transition-fast),
-			background var(--transition-fast);
+			background var(--transition-fast), opacity var(--transition-fast);
 		flex-shrink: 0;
+		opacity: 0.4;
 	}
 
 	.testimonial-nav:hover {
 		color: var(--color-accent);
 		background: var(--color-bg-alt);
+		opacity: 1;
 	}
 </style>
 
