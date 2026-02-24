@@ -13,6 +13,8 @@ function formatDate(dateStr: string): string {
 // Use the default draft for page metadata
 const defaultDraft = drafts.find((d) => d.id === defaultDraftId)!;
 const { basics } = defaultDraft.data;
+const defaultName = basics.name.toLowerCase().replace(/[^a-z0-9]/g, "-");
+const defaultPdfUrl = `/${defaultName}-resume-${defaultDraft.id}.pdf`;
 ---
 
 <BaseLayout title={`Resume — ${basics.name}`} description={basics.label}>
@@ -92,7 +94,12 @@ const { basics } = defaultDraft.data;
                     }
                 </div>
             </div>
-            <a href="/resume.pdf" download class="btn btn-primary">
+            <a
+                href={defaultPdfUrl}
+                download
+                class="btn btn-primary"
+                id="download-pdf-btn"
+            >
                 <svg
                     viewBox="0 0 24 24"
                     width="16"
@@ -116,21 +123,28 @@ const { basics } = defaultDraft.data;
             aria-label="Resume focus area"
         >
             {
-                drafts.map((draft) => (
-                    <button
-                        class={`draft-btn ${
-                            draft.id === defaultDraftId ? "active" : ""
-                        }`}
-                        data-draft-id={draft.id}
-                        role="tab"
-                        aria-selected={
-                            draft.id === defaultDraftId ? "true" : "false"
-                        }
-                        aria-controls={`draft-${draft.id}`}
-                    >
-                        {draft.label}
-                    </button>
-                ))
+                drafts.map((draft) => {
+                    const name = draft.data.basics.name
+                        .toLowerCase()
+                        .replace(/[^a-z0-9]/g, "-");
+                    const pdfUrl = `/${name}-resume-${draft.id}.pdf`;
+                    return (
+                        <button
+                            class={`draft-btn ${
+                                draft.id === defaultDraftId ? "active" : ""
+                            }`}
+                            data-draft-id={draft.id}
+                            data-pdf-url={pdfUrl}
+                            role="tab"
+                            aria-selected={
+                                draft.id === defaultDraftId ? "true" : "false"
+                            }
+                            aria-controls={`draft-${draft.id}`}
+                        >
+                            {draft.label}
+                        </button>
+                    );
+                })
             }
         </div>
 
@@ -370,6 +384,9 @@ const { basics } = defaultDraft.data;
             document.querySelectorAll<HTMLButtonElement>(".draft-btn");
         const panels = document.querySelectorAll<HTMLElement>(".draft-panel");
         const label = document.getElementById("resume-label");
+        const downloadBtn = document.getElementById(
+            "download-pdf-btn"
+        ) as HTMLAnchorElement;
 
         buttons.forEach((btn) => {
             btn.addEventListener("click", () => {
@@ -383,6 +400,11 @@ const { basics } = defaultDraft.data;
                 });
                 btn.classList.add("active");
                 btn.setAttribute("aria-selected", "true");
+
+                // Update download link
+                if (downloadBtn && btn.dataset.pdfUrl) {
+                    downloadBtn.href = btn.dataset.pdfUrl;
+                }
 
                 // Swap panels with fade
                 panels.forEach((panel) => {
