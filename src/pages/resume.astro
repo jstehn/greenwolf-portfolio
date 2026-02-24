@@ -150,7 +150,7 @@ const defaultPdfUrl = `/${defaultName}-resume-${defaultDraft.id}.pdf`;
                     const name = draft.data.basics.name
                         .toLowerCase()
                         .replace(/[^a-z0-9]/g, "-");
-                    const pdfUrl = `/${name}-resume-${draft.id}.pdf`;
+                    const pdfUrl = `/resumes/${name}-resume-${draft.id}.pdf`;
                     return (
                         <button
                             class={`draft-btn ${

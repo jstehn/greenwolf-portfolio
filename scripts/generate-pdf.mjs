@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const distDir = path.join(__dirname, '..', 'dist');
+const publicResumesDir = path.join(__dirname, '..', 'public', 'resumes');
 
 const PORT = 3000;
 
@@ -36,10 +37,19 @@ server.listen(PORT, async () => {
 
     try {
         console.log('Launching browser...');
-        const browser = await puppeteer.launch({
-            headless: 'new',
-            args: ['--no-sandbox', '--disable-setuid-sandbox']
-        });
+        let browser;
+        try {
+            browser = await puppeteer.launch({
+                headless: 'new',
+                args: ['--no-sandbox', '--disable-setuid-sandbox']
+            });
+        } catch (launchError) {
+            console.warn('⚠️ Could not launch Puppeteer. Skipping PDF generation.');
+            console.warn('This is expected in environments like Cloudflare Pages that lack Chrome system dependencies.');
+            console.warn(launchError.message);
+            process.exitCode = 0; // Exit cleanly so the build doesn't fail
+            return;
+        }
 
         const page = await browser.newPage();
 
@@ -79,7 +89,7 @@ server.listen(PORT, async () => {
             });
 
             await page.pdf({
-                path: path.join(distDir, pdfFilename),
+                path: path.join(publicResumesDir, pdfFilename),
                 format: 'Letter',
                 printBackground: true,
                 margin: {
