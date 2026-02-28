@@ -24,6 +24,68 @@ const getResumeName = (resumeFile) => {
     }
 }
 
+/**
+ * Check if a PDF needs regeneration by comparing mtimes.
+ * Returns true if the PDF doesn't exist or the JSON is newer than the PDF.
+ */
+function needsRegeneration(jsonPath, pdfPath) {
+    if (!fs.existsSync(pdfPath)) return true;
+    const jsonMtime = fs.statSync(jsonPath).mtimeMs;
+    const pdfMtime = fs.statSync(pdfPath).mtimeMs;
+    return jsonMtime > pdfMtime;
+}
+
+/**
+ * Set the PDF's mtime to match its source JSON, so that identical
+ * source data always produces files with the same timestamp.
+ */
+function syncMtime(jsonPath, pdfPath) {
+    const jsonStat = fs.statSync(jsonPath);
+    fs.utimesSync(pdfPath, jsonStat.atime, jsonStat.mtime);
+}
+
+// Determine which drafts need PDF regeneration
+const resumePdfDir = path.join(distDir, 'resume-pdf');
+if (!fs.existsSync(resumePdfDir)) {
+    console.error('resume-pdf directory not found in dist. Ensure Astro build completed successfully.');
+    process.exit(1);
+}
+
+const allDrafts = fs.readdirSync(resumePdfDir).filter(f => fs.statSync(path.join(resumePdfDir, f)).isDirectory());
+
+// Pre-filter: only regenerate PDFs whose source JSON is newer
+const draftsToGenerate = [];
+const skippedDrafts = [];
+
+for (const draftId of allDrafts) {
+    const jsonFileName = `${draftId}.json`;
+    const jsonPath = path.join(resumesDir, jsonFileName);
+    let targetName = 'jack-stehn';
+
+    if (fs.existsSync(jsonPath)) {
+        targetName = getResumeName(jsonFileName);
+    }
+
+    const pdfFilename = `${targetName}-resume-${draftId}.pdf`;
+    const pdfPath = path.join(publicResumesDir, pdfFilename);
+
+    if (needsRegeneration(jsonPath, pdfPath)) {
+        draftsToGenerate.push({ draftId, jsonPath, pdfPath, pdfFilename, targetName });
+    } else {
+        skippedDrafts.push(draftId);
+    }
+}
+
+if (skippedDrafts.length > 0) {
+    console.log(`⏭ Skipping ${skippedDrafts.length} up-to-date PDF(s): ${skippedDrafts.join(', ')}`);
+}
+
+if (draftsToGenerate.length === 0) {
+    console.log('✓ All PDFs are up-to-date. Nothing to generate.');
+    process.exit(0);
+}
+
+console.log(`📄 ${draftsToGenerate.length} PDF(s) need regeneration...`);
 
 // Create server to serve static files from dist
 const server = http.createServer((request, response) => {
@@ -53,43 +115,15 @@ server.listen(PORT, async () => {
 
         const page = await browser.newPage();
 
-        // Find all generated resume pages
-        const resumePdfDir = path.join(distDir, 'resume-pdf');
-        if (!fs.existsSync(resumePdfDir)) {
-            console.error('resume-pdf directory not found in dist. Ensure Astro build completed successfully.');
-            process.exitCode = 1;
-            return;
-        }
-
-        const drafts = fs.readdirSync(resumePdfDir).filter(f => fs.statSync(path.join(resumePdfDir, f)).isDirectory());
-
-        console.log(`Found ${drafts.length} resume drafts to convert...`);
-
-        for (const draftId of drafts) {
+        for (const { draftId, jsonPath, pdfPath, pdfFilename } of draftsToGenerate) {
             console.log(`Generating PDF for ${draftId}...`);
-
-            let targetName = 'jack-stehn'; // fallback
-
-            // Match the draft ID to the resume JSON file to get the name
-            // Our IDs are mostly the same as the filenames (e.g. data-engineer -> data-engineer.json)
-            // Except for `general` which maps to `general.json` and `everything` which maps to `everything.json`
-            const jsonFileName = `${draftId}.json`;
-            if (fs.existsSync(path.join(resumesDir, jsonFileName))) {
-                targetName = getResumeName(jsonFileName);
-            } else if (draftId === 'general') {
-                targetName = getResumeName('general.json');
-            } else if (draftId === 'everything') {
-                targetName = getResumeName('everything.json');
-            }
-
-            const pdfFilename = `${targetName}-resume-${draftId}.pdf`;
 
             await page.goto(`http://localhost:${PORT}/resume-pdf/${draftId}`, {
                 waitUntil: 'networkidle0'
             });
 
             await page.pdf({
-                path: path.join(publicResumesDir, pdfFilename),
+                path: pdfPath,
                 format: 'Letter',
                 printBackground: true,
                 margin: {
@@ -99,6 +133,10 @@ server.listen(PORT, async () => {
                     left: '0'
                 }
             });
+
+            // Sync the PDF's mtime to the source JSON's mtime
+            syncMtime(jsonPath, pdfPath);
+
             console.log(`✓ Saved ${pdfFilename}`);
         }
 

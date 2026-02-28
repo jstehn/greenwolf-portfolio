@@ -3,13 +3,15 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { SITE_DESCRIPTION, SITE_TITLE, BLOG_ENABLED } from "../consts";
 import resume from "../data/resumes/everything.json";
 import testimonials from "../data/testimonials.json";
 
-const posts = (await getCollection("blog"))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3);
+const posts = BLOG_ENABLED
+	? (await getCollection("blog"))
+			.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+			.slice(0, 3)
+	: [];
 
 const featuredProjects = resume.projects.slice(0, 3);
 ---
@@ -158,29 +160,34 @@ const featuredProjects = resume.projects.slice(0, 3);
 		</div>
 	</section>
 
-	<!-- Latest Blog Posts -->
-	<section class="section">
-		<div class="section-header">
-			<h2 class="section-title">Latest Posts</h2>
-			<p class="section-subtitle">Thoughts, tutorials, and learnings</p>
-		</div>
-		<div class="post-list">
-			{
-				posts.map((post) => (
-					<a href={`/blog/${post.id}/`} class="post-item">
-						<div class="post-meta">
-							<FormattedDate date={post.data.pubDate} />
-						</div>
-						<h3 class="post-title">{post.data.title}</h3>
-						<p class="post-desc">{post.data.description}</p>
+	{
+		BLOG_ENABLED && posts.length > 0 && (
+			<section class="section">
+				<div class="section-header">
+					<h2 class="section-title">Latest Posts</h2>
+					<p class="section-subtitle">
+						Thoughts, tutorials, and learnings
+					</p>
+				</div>
+				<div class="post-list">
+					{posts.map((post) => (
+						<a href={`/blog/${post.id}/`} class="post-item">
+							<div class="post-meta">
+								<FormattedDate date={post.data.pubDate} />
+							</div>
+							<h3 class="post-title">{post.data.title}</h3>
+							<p class="post-desc">{post.data.description}</p>
+						</a>
+					))}
+				</div>
+				<div class="section-cta">
+					<a href="/blog" class="btn btn-secondary">
+						Read All Posts →
 					</a>
-				))
-			}
-		</div>
-		<div class="section-cta">
-			<a href="/blog" class="btn btn-secondary">Read All Posts →</a>
-		</div>
-	</section>
+				</div>
+			</section>
+		)
+	}
 </BaseLayout>
 
 <style>

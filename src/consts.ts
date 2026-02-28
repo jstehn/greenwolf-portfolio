@@ -3,3 +3,6 @@
 
 export const SITE_TITLE = 'Jack Stehn';
 export const SITE_DESCRIPTION = 'Machine Learning Engineer | Data Engineer | Data Scientist';
+
+// Feature flags
+export const BLOG_ENABLED = false;

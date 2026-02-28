@@ -1,14 +1,18 @@
 ---
-import { SITE_TITLE } from "../consts";
+import { SITE_TITLE, BLOG_ENABLED } from "../consts";
 
 const pathname = Astro.url.pathname;
 
-const navLinks = [
+const allNavLinks = [
 	{ href: "/", label: "Home" },
 	{ href: "/resume", label: "Resume" },
 	{ href: "/portfolio", label: "Portfolio" },
 	{ href: "/blog", label: "Blog" },
 ];
+
+const navLinks = BLOG_ENABLED
+	? allNavLinks
+	: allNavLinks.filter((link) => link.href !== "/blog");
 ---
 
 <header>
