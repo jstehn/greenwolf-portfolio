@@ -2,7 +2,7 @@
     "basics": {
         "name": "Jack Stehn",
         "label": "Data Engineer",
-        "email": "jack@ste.hn",
+        "email": "jack@greenwolf.me",
         "summary": "Data Engineer with a strong foundation in architecting scalable, production-grade data platforms. I bring a software engineering mindset to orchestrating end-to-end ELT/ETL pipelines and modern data warehousing. I focus on championing CI/CD, testing, and modular design to build systems that are maintainable, observable, and impactful.",
         "location": {
             "city": "San Francisco",
@@ -22,8 +22,8 @@
             },
             {
                 "network": "html5",
-                "username": "ste.hn",
-                "url": "https://ste.hn/"
+                "username": "greenwolf.me",
+                "url": "https://greenwolf.me/"
             }
         ]
     },

@@ -2,7 +2,7 @@
     "basics": {
         "name": "Jack Stehn",
         "label": "Data Scientist",
-        "email": "jack@ste.hn",
+        "email": "jack@greenwolf.me",
         "summary": "Data Scientist expertly blending rigorous social science research with production-grade engineering. I specialize in the full ML lifecycle—translating complex data into actionable insights and deploying explainable predictive models that drive measurable business outcomes. I am focused on bridging the gap between statistical foundations and scalable, ethical applications.",
         "location": {
             "city": "San Francisco",
@@ -22,8 +22,8 @@
             },
             {
                 "network": "html5",
-                "username": "ste.hn",
-                "url": "https://ste.hn/"
+                "username": "greenwolf.me",
+                "url": "https://greenwolf.me/"
             }
         ]
     },

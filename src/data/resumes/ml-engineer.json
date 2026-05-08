@@ -2,7 +2,7 @@
     "basics": {
         "name": "Jack Stehn",
         "label": "Machine Learning Engineer",
-        "email": "jack@ste.hn",
+        "email": "jack@greenwolf.me",
         "summary": "Machine Learning Engineer specializing in building and deploying production ML systems end-to-end. I bridge the gap between 'notebook data science' and production-ready systems by bringing strong software engineering practices to predictive modeling and scalable MLOps infrastructure. I focus on ensuring models are explainable, maintainable, and directly impactful at scale.",
         "location": {
             "city": "San Francisco",
@@ -22,8 +22,8 @@
             },
             {
                 "network": "html5",
-                "username": "ste.hn",
-                "url": "https://ste.hn/"
+                "username": "greenwolf.me",
+                "url": "https://greenwolf.me/"
             }
         ]
     },
