@@ -29,6 +29,18 @@
     },
     "work": [
         {
+            "name": "Innovare",
+            "position": "Data Analytics & Customer Delivery Engineer (Contract)",
+            "startDate": "2026-03-01",
+            "location": "Chicago, Illinois (Remote)",
+            "highlights": [
+                "**Production Data Reliability:** Own the stability and scalability of production analytics infrastructure on BigQuery — the same data foundation layer that underpins ML feature pipelines and model training datasets.",
+                "**Modern Data/ML Stack Advocacy:** Proposed adopting dlt, dbt, and Dagster to bring CI/CD, testing, and orchestration discipline to data workflows — directly transferable to MLOps practice (feature pipelines, model retraining DAGs, evaluation jobs).",
+                "**Architecture Design:** Co-designing a Medallion (bronze/silver/gold) architecture on BigQuery to establish the lineage, testability, and reproducibility prerequisites for trustworthy downstream ML and analytics workloads.",
+                "**Automation & Observability:** Replacing manual workflows with automated, observable pipelines — applying the same engineering rigor required for reliable model serving and continuous training systems."
+            ]
+        },
+        {
             "name": "Caliber Public Schools",
             "position": "Data Scientist (Lead: ML, MLOps, Data Engineering) - Ed Pioneers Fellow",
             "startDate": "2024-09-01",

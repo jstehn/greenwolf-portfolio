@@ -29,6 +29,19 @@
     },
     "work": [
         {
+            "name": "Innovare",
+            "position": "Data Scientist / Customer Delivery Engineer (Contract)",
+            "startDate": "2026-03-01",
+            "location": "Chicago, Illinois (Remote)",
+            "highlights": [
+                "**Analytics Layer Stewardship:** Own the correctness and interpretability of the EdTech analytics layer, ensuring metrics, segmentation, and dashboards remain trustworthy for school leadership decision-making.",
+                "**Stakeholder-Ready Insights:** Deliver presentation-ready analyses for enterprise accounts, translating raw operational data into segmented, decision-driving narratives for non-technical school leaders.",
+                "**Customer-Facing Analysis:** Diagnose data quality and metric discrepancies for enterprise customers, applying statistical reasoning and domain knowledge to surface root causes rather than just symptoms.",
+                "**Analytics Architecture Input:** Consulted using data engineering experience on the company's data architecture roadmap, planning for a Medallion structure on BigQuery to give analytics workflows reproducible, well-tested foundations.",
+                "**Workflow Automation:** Automating recurring analytics workflows so the team can spend more time on high-leverage exploratory analysis and less on manual report production."
+            ]
+        },
+        {
             "name": "Caliber Public Schools",
             "position": "Data Scientist (Lead: ML, Data Engineering, MLOps) - Ed Pioneers Fellow",
             "startDate": "2024-09-01",

@@ -29,6 +29,19 @@
     },
     "work": [
         {
+            "name": "Innovare",
+            "position": "Data Analytics & Customer Delivery Engineer (Contract)",
+            "startDate": "2026-03-01",
+            "location": "Chicago, Illinois (Remote)",
+            "highlights": [
+                "**EdTech Analytics Reliability:** Specialize in the stability and scalability of the EdTech analytics layer, ensuring high-stakes dashboards and datasets are accurate, reliable, and actionable for school leadership teams.",
+                "**Enterprise Customer Delivery:** Manage complex data pipelines, automate manual workflows, and deliver presentation-ready insights for enterprise accounts — translating raw data into decision-ready artifacts for non-technical stakeholders.",
+                "**Data Architecture Consulting:** Co-designing the next-generation data architecture, proposing a transition plan to a Medallion (bronze/silver/gold) infrastructure on BigQuery to improve traceability, testability, costs, and downstream analytics velocity.",
+                "**Modern Stack Proposal:** Proposed adopting a modern open-source stack — Terraform for IaC, dlt for ingestion, dbt for transformation, and Dagster for orchestration, Cube.js for semantic layer — to replace ad-hoc workflows with a maintainable, version-controlled, observable platform.",
+                "**Workflow Automation:** Automating previously manual customer delivery workflows to reduce turnaround time and free engineering capacity for higher-leverage analytics work."
+            ]
+        },
+        {
             "name": "Caliber Public Schools",
             "position": "Data Scientist (Lead: ML, Data Engineering, MLOps) - Ed Pioneers Fellow",
             "startDate": "2024-09-01",

@@ -29,6 +29,19 @@
     },
     "work": [
         {
+            "name": "Innovare",
+            "position": "Data & Customer Delivery Engineer (Contract)",
+            "startDate": "2026-03-01",
+            "location": "Chicago, Illinois (Remote)",
+            "highlights": [
+                "**System Reliability:** Own the stability and scalability of production data systems serving enterprise customers, treating analytics infrastructure as a software product with uptime, correctness, and performance requirements.",
+                "**Architecture Consulting:** Co-designing the next-generation system architecture, proposing a Medallion (bronze/silver/gold) layered design on BigQuery with clear interface contracts and separation of concerns between ingestion, transformation, and serving.",
+                "**Modern Toolchain Advocacy:** Proposed migrating to a version-controlled, test-driven stack (Terraform, dlt, dbt, Dagster, Cube.js) to replace ad-hoc scripts — bringing CI/CD, code review, and observability practices to a domain that often lacks them.",
+                "**Workflow Automation:** Designed and built automated workflows that replaced manual, error-prone delivery processes — reducing turnaround time and eliminating recurring operational toil.",
+                "**Cross-System Integration:** Engineer integrations across disparate enterprise systems, accounting for schema evolution, failure modes, and the realities of multi-tenant production environments."
+            ]
+        },
+        {
             "name": "Caliber Public Schools",
             "position": "Data Scientist (Lead: Data Systems, Platform Engineering) - Ed Pioneers Fellow",
             "startDate": "2024-09-01",
