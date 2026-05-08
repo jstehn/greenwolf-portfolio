@@ -68,18 +68,6 @@
                 "**Business Impact:** Contributed to infrastructure enhancements that achieved 33% faster ramp times, 16% higher revenue, and 15x ROI for customers.",
                 "**Cross-Functional Leadership:** Collaborated with Engineering, Product, and Support teams to spec out large-scale infrastructure restructuring."
             ]
-        },
-        {
-            "name": "Los Medanos College",
-            "position": "Full Stack Engineer",
-            "startDate": "2019-05-01",
-            "endDate": "2019-08-01",
-            "location": "Pittsburg, California",
-            "highlights": [
-                "**Full Stack Development:** Independently designed and developed a web application (Python, JavaScript, PHP, PostgreSQL) to guide student program selection.",
-                "**Data Acquisition:** Built a database of 500+ university programs via web scraping (Beautiful Soup) and rigorous data cleaning.",
-                "**Stakeholder Consulting:** Consulted with college stakeholders (district, counselors) to define user needs."
-            ]
         }
     ],
     "education": [
