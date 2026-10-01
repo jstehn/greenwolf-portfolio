@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { drafts, defaultDraftId } from "../data/resumeDrafts";
+import { visibleDrafts as drafts, defaultDraftId } from "../data/resumeDrafts";
 
 function formatDate(dateStr: string): string {
     const [year, month, day] = dateStr.split("-").map(Number);

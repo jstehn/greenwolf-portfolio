@@ -112,8 +112,7 @@
             "name": "Deep Learning & Advanced AI",
             "keywords": [
                 "Deep Learning (PyTorch, TF/Keras)",
-                "Neural Nets (CNN, RNN, Transformers)",
-                "Reinforcement Learning Concepts"
+                "Neural Nets (CNN, RNN, Transformers)"
             ]
         },
         {
@@ -129,7 +128,6 @@
             "name": "Generative AI & LLMs",
             "keywords": [
                 "Prompt Engineering",
-                "LLM Fine-tuning",
                 "Retrieval Augmented Generation",
                 "LangChain",
                 "LangGraph",
@@ -183,7 +181,7 @@
             "organization": "Education Pioneers",
             "position": "Impact Fellow (Placement @ Caliber Public Schools)",
             "startDate": "2024-09-01",
-            "endDate": "2025-09-01",
+            "endDate": "2025-10-01",
             "summary": "Selected for national fellowship applying ML & leadership skills to advance educational equity.",
             "highlights": [
                 "**Leadership Development:** Applying ML engineering & leadership skills to advance educational equity."

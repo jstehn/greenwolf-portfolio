@@ -137,8 +137,6 @@
                 "Java",
                 "JavaScript",
                 "HTML/CSS",
-                "C++ (basics)",
-                "PHP (basics)",
                 "Databases (PostgreSQL, MySQL)",
                 "Web Scraping (Beautiful Soup, Selenium)",
                 "Apache Spark (PySpark basics)",
@@ -149,7 +147,6 @@
             "name": "Generative AI & LLMs",
             "keywords": [
                 "Prompt Engineering",
-                "LLM Fine-tuning",
                 "Retrieval Augmented Generation",
                 "LangChain",
                 "LangGraph",
@@ -163,7 +160,6 @@
                 "Team Leadership & Mentoring",
                 "Cross-functional Collaboration",
                 "Stakeholder Comms & Management",
-                "Requirements Elicitation/Define",
                 "Project Management (Agile)",
                 "Technical Documentation/Reporting"
             ]
@@ -182,7 +178,7 @@
             "organization": "Education Pioneers",
             "position": "Impact Fellow (Placement @ Caliber Public Schools)",
             "startDate": "2024-09-01",
-            "endDate": "2025-09-01",
+            "endDate": "2025-10-01",
             "summary": "Selected for national fellowship applying engineering & leadership skills to advance educational equity.",
             "highlights": [
                 "**Capacity Building:** Building organizational capacity through strategic engineering projects at placement site."

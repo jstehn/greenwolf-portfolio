@@ -128,8 +128,7 @@
             "name": "Deep Learning & Advanced AI",
             "keywords": [
                 "Deep Learning (PyTorch, TF/Keras)",
-                "Neural Nets (CNN, RNN, Transformers)",
-                "Reinforcement Learning Concepts"
+                "Neural Nets (CNN, RNN, Transformers)"
             ]
         },
         {
@@ -189,7 +188,7 @@
             "organization": "Education Pioneers",
             "position": "Impact Fellow (Placement @ Caliber Public Schools)",
             "startDate": "2024-09-01",
-            "endDate": "2025-09-01",
+            "endDate": "2025-10-01",
             "summary": "Selected for national fellowship applying data science & leadership skills to advance educational equity.",
             "highlights": [
                 "**Leadership Development:** Applying data science & leadership skills to advance educational equity."
@@ -203,6 +202,17 @@
             "highlights": [
                 "**Team Leadership:** Led volunteer team providing data analysis for organizational strategy.",
                 "**Survey Analysis:** Designed & analyzed surveys (qual/quant) informing policy & growth."
+            ]
+        },
+        {
+            "organization": "San Francisco Gay Men's Chorus",
+            "position": "Mentor and Trans Support Leader",
+            "startDate": "2018-01-01",
+            "summary": "Support members through mentorship and leadership within trans support initiatives, coordinating meetings and events.",
+            "highlights": [
+                "**Peer Mentorship:** Provided mentorship and peer support to chorus members.",
+                "**Community Leadership:** Led coordination for trans member support group meetings and events.",
+                "**Inclusive Culture:** Contributed to fostering an inclusive environment within the organization."
             ]
         }
     ]

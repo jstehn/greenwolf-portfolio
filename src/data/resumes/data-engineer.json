@@ -1,9 +1,9 @@
 {
     "basics": {
         "name": "Jack Stehn",
-        "label": "Data Engineer",
+        "label": "Data & Analytics Engineer",
         "email": "jack@ste.hn",
-        "summary": "Data Engineer with a strong foundation in architecting scalable, production-grade data platforms. I bring a software engineering mindset to orchestrating end-to-end ELT/ETL pipelines and modern data warehousing. I focus on championing CI/CD, testing, and modular design to build systems that are maintainable, observable, and impactful.",
+        "summary": "Data & Analytics Engineer who builds the pipelines, warehouses, and models that turn messy, multi-system data into numbers people trust. I've designed modern data stacks (Dagster, dbt, dlt, BigQuery) end to end, from ingestion and data quality checks to the semantic layers and dashboards stakeholders use every day. I bring a software engineering mindset—CI/CD, testing, and modular design—so data systems stay maintainable, observable, and useful.",
         "location": {
             "city": "San Francisco",
             "region": "California",
@@ -156,10 +156,32 @@
             "organization": "Education Pioneers",
             "position": "Impact Fellow (Placement @ Caliber Public Schools)",
             "startDate": "2024-09-01",
-            "endDate": "2025-09-01",
+            "endDate": "2025-10-01",
             "summary": "Selected for national fellowship applying leadership/management skills to advance educational equity via capacity-building projects.",
             "highlights": [
                 "**Capacity Building:** Building organizational capacity through strategic data engineering projects at placement site."
+            ]
+        },
+        {
+            "organization": "San Francisco Gay Men's Chorus",
+            "position": "Data Team Lead",
+            "startDate": "2023-12-01",
+            "summary": "Provide data-driven insights for policy-making and organizational growth through survey creation and analysis (qualitative & quantitative).",
+            "highlights": [
+                "**Team Leadership:** Led volunteer team providing data analysis for organizational strategy.",
+                "**Survey Analysis:** Designed & analyzed surveys (qual/quant) informing policy & growth.",
+                "**Executive Presentation:** Presented data-driven insights to chorus leadership."
+            ]
+        },
+        {
+            "organization": "San Francisco Gay Men's Chorus",
+            "position": "Mentor and Trans Support Leader",
+            "startDate": "2018-01-01",
+            "summary": "Support members through mentorship and leadership within trans support initiatives, coordinating meetings and events.",
+            "highlights": [
+                "**Peer Mentorship:** Provided mentorship and peer support to chorus members.",
+                "**Community Leadership:** Led coordination for trans member support group meetings and events.",
+                "**Inclusive Culture:** Contributed to fostering an inclusive environment within the organization."
             ]
         }
     ]

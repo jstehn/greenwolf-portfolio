@@ -163,8 +163,7 @@
       "name": "Deep Learning & Advanced AI",
       "keywords": [
         "Deep Learning (PyTorch, TF/Keras)",
-        "Neural Nets (CNN, RNN, Transformers)",
-        "Reinforcement Learning Concepts"
+        "Neural Nets (CNN, RNN, Transformers)"
       ]
     },
     {
@@ -180,7 +179,6 @@
       "name": "Generative AI & LLMs",
       "keywords": [
         "Prompt Engineering",
-        "LLM Fine-tuning",
         "Retrieval Augmented Generation",
         "LangChain",
         "LangGraph",
@@ -250,11 +248,9 @@
         "Team Leadership & Mentoring",
         "Cross-functional Collaboration",
         "Stakeholder Comms & Management",
-        "Requirements Elicitation/Define",
         "Project Management (Agile)",
         "Technical Documentation/Reporting",
-        "Presenting (Tech & Non-Tech)",
-        "Problem Solving & Critical Think"
+        "Presenting (Tech & Non-Tech)"
       ]
     },
     {
@@ -263,8 +259,6 @@
         "Java",
         "JavaScript",
         "HTML/CSS",
-        "C++ (basics)",
-        "PHP (basics)",
         "Databases (PostgreSQL, MySQL)",
         "Web Scraping (Beautiful Soup, Selenium)",
         "Apache Spark (PySpark basics)",
@@ -273,6 +267,26 @@
     }
   ],
   "projects": [
+    {
+      "name": "Dagster People Team Pipeline",
+      "summary": "Developed a data pipeline using Dagster to ingest People Team data from various sources into Google BigQuery. Designed, built, and deployed an automated Dagster pipeline on GCP to ingest, transform, and load diverse HR data for comprehensive People analytics.",
+      "highlights": [
+        "**Automated ETL:** Architected and implemented a scalable ETL pipeline using Dagster for orchestrating data workflows from various HR sources (BambooHR, Paycom, internal docs) into Google BigQuery.",
+        "**Automated QA:** Automated data consistency checks, reducing manual validation efforts from months annually to seconds, significantly improving data accuracy and reducing human error across HR systems.",
+        "**Predictive Analytics:** Enabled rich longitudinal and cross-referential data analysis, enriching staff satisfaction surveys with detailed segmentation (location, role, demographics, tenure).",
+        "**Data Interoperability:** Designed the pipeline with explicit consideration for integration with diverse data systems and platforms, ensuring broad interoperability."
+      ],
+      "keywords": [
+        "Python",
+        "Dagster",
+        "Data Pipeline",
+        "ETL",
+        "GCP",
+        "BigQuery",
+        "Data Engineering"
+      ],
+      "url": "https://github.com/jstehn/dagster-people-team-pipeline"
+    },
     {
       "name": "ResumeLLM (AI Agent for Resume Tailoring)",
       "summary": "Engineered a sophisticated AI agent using LangChain and LangGraph to automate and enhance resume tailoring, showcasing advanced capabilities in generative AI, natural language processing, and complex system orchestration.",
@@ -293,26 +307,6 @@
         "Data Optimization"
       ],
       "url": "https://github.com/jstehn/resume-llm/tree/develop/"
-    },
-    {
-      "name": "Dagster People Team Pipeline",
-      "summary": "Developed a data pipeline using Dagster to ingest People Team data from various sources into Google BigQuery. Designed, built, and deployed an automated Dagster pipeline on GCP to ingest, transform, and load diverse HR data for comprehensive People analytics.",
-      "highlights": [
-        "**Automated ETL:** Architected and implemented a scalable ETL pipeline using Dagster for orchestrating data workflows from various HR sources (BambooHR, Paycom, internal docs) into Google BigQuery.",
-        "**Automated QA:** Automated data consistency checks, reducing manual validation efforts from months annually to seconds, significantly improving data accuracy and reducing human error across HR systems.",
-        "**Predictive Analytics:** Enabled rich longitudinal and cross-referential data analysis, enriching staff satisfaction surveys with detailed segmentation (location, role, demographics, tenure).",
-        "**Data Interoperability:** Designed the pipeline with explicit consideration for integration with diverse data systems and platforms, ensuring broad interoperability."
-      ],
-      "keywords": [
-        "Python",
-        "Dagster",
-        "Data Pipeline",
-        "ETL",
-        "GCP",
-        "BigQuery",
-        "Data Engineering"
-      ],
-      "url": "https://github.com/jstehn/dagster-people-team-pipeline"
     },
     {
       "name": "Firewatch Chatbot (CalSAFE DataGood)",
@@ -354,23 +348,6 @@
         "History"
       ],
       "url": "https://github.com/jstehn/warren-court-language-model"
-    },
-    {
-      "name": "Neural Network By Hand (Berkeley Exercise)",
-      "summary": "Berkeley class exercise implementing neural networks from scratch to deeply understand their mechanics and mathematics.",
-      "highlights": [
-        "**Core Implementation:** Implemented core NN components (layers, activation, backpropagation) based on class skeleton.",
-        "**Mathematical Foundations:** Focused on understanding mathematical foundations over code flexibility.",
-        "**Deep Learning Concepts:** Solidified grasp of fundamental deep learning concepts."
-      ],
-      "keywords": [
-        "Python",
-        "Neural Networks",
-        "Machine Learning",
-        "NumPy",
-        "Education"
-      ],
-      "url": "https://github.com/jstehn/nn-by-hand-188"
     }
   ],
   "awards": [
@@ -386,7 +363,7 @@
       "organization": "Education Pioneers",
       "position": "Impact Fellow (Placement @ Caliber Public Schools)",
       "startDate": "2024-09-01",
-      "endDate": "2025-09-01",
+      "endDate": "2025-10-01",
       "summary": "Selected for national fellowship applying leadership/management skills to advance educational equity via capacity-building projects and leadership development.",
       "highlights": [
         "**Leadership Development:** Applying data science & leadership skills to advance educational equity.",
