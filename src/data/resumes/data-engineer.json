@@ -3,7 +3,7 @@
         "name": "Jack Stehn",
         "label": "Data & Analytics Engineer",
         "email": "jack@ste.hn",
-        "summary": "Data & Analytics Engineer who builds the pipelines, warehouses, and models that turn messy, multi-system data into numbers people trust. I've designed modern data stacks (Dagster, dbt, dlt, BigQuery) end to end, from ingestion and data quality checks to the semantic layers and dashboards stakeholders use every day. I bring a software engineering mindset—CI/CD, testing, and modular design—so data systems stay maintainable, observable, and useful.",
+        "summary": "Data & Analytics Engineer who builds the pipelines, warehouses, and models that turn messy, multi-system data into numbers people trust. I've designed modern data stacks (Dagster, dbt, dlt, BigQuery) end to end, from ingestion and data quality checks to the semantic layers, dashboards, and production ML models stakeholders rely on. I bring a software engineering mindset—CI/CD, testing, and modular design—so data systems stay maintainable, observable, and useful.",
         "location": {
             "city": "San Francisco",
             "region": "California",
@@ -52,7 +52,7 @@
                 "**Engineering Maturity (ROI):** Engineered a comprehensive People Team data pipeline, reducing manual consistency checks from months of collective annual work to seconds. Built a custom automated data quality framework to catch inconsistencies between systems.",
                 "**API Integration & Interoperability:** Solved complex data interoperability challenges by designing integrations between Schoolmint and PowerSchool. Reverse-engineered undocumented APIs to create a unified data model for cross-functional analysis.",
                 "**Solo Data Lead:** Owned the full data lifecycle as the sole data professional, partnering directly with C-suite and department heads to move the org from manual spreadsheets to automated warehousing.",
-                "**Data Democratization:** Updated the organization's data security policy and designed data literacy training modules, empowering school leaders to access real-time metrics without technical bottlenecks."
+                "**Predictive Modeling:** Built and deployed an explainable staff-turnover model (Logistic Regression, Deep Learning) with a tunable risk threshold so leadership could match precision/recall to hiring capacity."
             ]
         },
         {
@@ -66,7 +66,7 @@
                 "**Scalable Data Modeling:** Architected scalable Star Schema data models and optimized ETL/ELT processes, ensuring data readiness for ML and LLM integration.",
                 "**Engineering Best Practices:** Championed the adoption of CI/CD pipelines (GitHub Actions), unit testing (pytest), and Agile methodologies within the data science team.",
                 "**Business Impact:** Contributed to infrastructure enhancements that achieved 33% faster ramp times, 16% higher revenue, and 15x ROI for customers.",
-                "**Cross-Functional Leadership:** Collaborated with Engineering, Product, and Support teams to spec out large-scale infrastructure restructuring."
+                "**Production ML:** Developed and deployed propensity scoring and churn models, using NLP on unstructured email metadata to surface sales signals."
             ]
         }
     ],
@@ -105,6 +105,16 @@
                 "Bash/Shell Scripting",
                 "Feature Engineering",
                 "Unstructured Data Analysis"
+            ]
+        },
+        {
+            "name": "Machine Learning",
+            "keywords": [
+                "Predictive Modeling (Scikit-learn)",
+                "Classification & Regression",
+                "Explainable ML",
+                "Model Eval & Selection",
+                "NLP (spaCy, HuggingFace)"
             ]
         },
         {
