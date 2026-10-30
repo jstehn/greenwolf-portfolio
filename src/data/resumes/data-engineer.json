@@ -2,8 +2,8 @@
     "basics": {
         "name": "Jack Stehn",
         "label": "Data & Analytics Engineer",
-        "email": "jack@ste.hn",
-        "summary": "Data & Analytics Engineer who builds the pipelines, warehouses, and models that turn messy, multi-system data into numbers people trust. I've designed modern data stacks (Dagster, dbt, dlt, BigQuery) end to end, from ingestion and data quality checks to the semantic layers, dashboards, and production ML models stakeholders rely on. I bring a software engineering mindset—CI/CD, testing, and modular design—so data systems stay maintainable, observable, and useful.",
+        "email": "jack.stehn@protonmail.com",
+        "summary": "Data & Analytics Engineer who builds the pipelines, warehouses, and models that turn messy, multi-system data into numbers people trust. I've designed modern data stacks (Dagster, dbt, dlt, BigQuery) end to end, from ingestion and data quality checks to dashboards and production ML, with a software engineering mindset: CI/CD, testing, and modular design.",
         "location": {
             "city": "San Francisco",
             "region": "California",
@@ -32,13 +32,14 @@
             "name": "Innovare",
             "position": "Data Engineer / Customer Delivery Engineer (Contract)",
             "startDate": "2026-03-01",
+            "endDate": "2026-09-01",
             "location": "Chicago, Illinois (Remote)",
             "highlights": [
-                "**Pipeline Reliability:** Own the stability and scalability of production data pipelines feeding high-stakes EdTech dashboards, ensuring datasets remain accurate and auditable for enterprise school district customers.",
-                "**Medallion Architecture Design:** Co-designing a transition to a Medallion (bronze/silver/gold) data architecture on BigQuery, defining layer contracts, freshness SLAs, and lineage to improve traceability and downstream analytics velocity.",
+                "**K-12 Student Data Quality:** Worked across school partners' student data, including assessment scores, grades, and attendance. Validated it end to end, from source systems to final reports, and wrote automated data tests to catch errors before they reached educators.",
+                "**Pipeline Reliability:** Owned the stability and scalability of production data pipelines feeding high-stakes EdTech dashboards, ensuring datasets stayed accurate and auditable for enterprise school district customers.",
+                "**Medallion Architecture Design:** Helped design a transition to a Medallion (bronze/silver/gold) data architecture on BigQuery, defining layer contracts, freshness SLAs, and lineage to improve traceability and downstream analytics velocity.",
                 "**Modern Stack Advocacy:** Proposed adopting Terraform (IaC), dlt (ingestion), dbt (transformation), Dagster (orchestration), Cube.js (semantic layer) to replace ad-hoc workflows — enabling version control, automated testing, and unified observability across the platform.",
-                "**Workflow Automation:** Replacing manual customer delivery workflows with automated, idempotent pipelines, reducing turnaround time and eliminating recurring sources of data drift between systems.",
-                "**Cross-System Integration:** Manage complex data flows across disparate EdTech sources, designing for schema evolution, late-arriving data, and the operational realities of multi-tenant customer delivery."
+                "**Workflow Automation:** Replaced manual customer delivery workflows with automated, idempotent pipelines, reducing turnaround time and eliminating recurring sources of data drift between systems."
             ]
         },
         {
@@ -51,7 +52,7 @@
                 "**Modern Data Stack Architecture:** Architected and built a scalable platform on GCP. Orchestrated ELT pipelines using Dagster, dbt, and dlt to ingest data from disparate SIS (School Information Systems) and HR platforms into BigQuery.",
                 "**Engineering Maturity (ROI):** Engineered a comprehensive People Team data pipeline, reducing manual consistency checks from months of collective annual work to seconds. Built a custom automated data quality framework to catch inconsistencies between systems.",
                 "**API Integration & Interoperability:** Solved complex data interoperability challenges by designing integrations between Schoolmint and PowerSchool. Reverse-engineered undocumented APIs to create a unified data model for cross-functional analysis.",
-                "**Solo Data Lead:** Owned the full data lifecycle as the sole data professional, partnering directly with C-suite and department heads to move the org from manual spreadsheets to automated warehousing.",
+                "**Solo Data Lead:** As the sole data professional, partnered with the C-suite to move the org from manual spreadsheets to automated warehousing.",
                 "**Predictive Modeling:** Built and deployed an explainable staff-turnover model (Logistic Regression, Deep Learning) with a tunable risk threshold so leadership could match precision/recall to hiring capacity."
             ]
         },
@@ -63,9 +64,9 @@
             "location": "San Mateo, California",
             "highlights": [
                 "**Pipeline Architecture (AWS):** Led a critical overhaul of the AWS data infrastructure (S3, Athena, EMR). Implemented 'SQL Push-down' strategies and asynchronous DAGs, reducing data processing latency by 75% and scaling to multi-terabyte datasets.",
-                "**Scalable Data Modeling:** Architected scalable Star Schema data models and optimized ETL/ELT processes, ensuring data readiness for ML and LLM integration.",
+                "**Scalable Data Modeling:** Architected Star Schema data models and optimized ETL/ELT, readying data for ML and LLM integration.",
                 "**Engineering Best Practices:** Championed the adoption of CI/CD pipelines (GitHub Actions), unit testing (pytest), and Agile methodologies within the data science team.",
-                "**Business Impact:** Contributed to infrastructure enhancements that achieved 33% faster ramp times, 16% higher revenue, and 15x ROI for customers.",
+                "**Business Impact:** Infrastructure work contributed to 33% faster ramp times, 16% higher revenue, and 15x customer ROI.",
                 "**Production ML:** Developed and deployed propensity scoring and churn models, using NLP on unstructured email metadata to surface sales signals."
             ]
         }

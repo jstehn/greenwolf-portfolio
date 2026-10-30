@@ -2,7 +2,7 @@
     "basics": {
         "name": "Jack Stehn",
         "label": "Data Scientist",
-        "email": "jack@ste.hn",
+        "email": "jack.stehn@protonmail.com",
         "summary": "Data Scientist expertly blending rigorous social science research with production-grade engineering. I specialize in the full ML lifecycle—translating complex data into actionable insights and deploying explainable predictive models that drive measurable business outcomes. I am focused on bridging the gap between statistical foundations and scalable, ethical applications.",
         "location": {
             "city": "San Francisco",
@@ -32,13 +32,15 @@
             "name": "Innovare",
             "position": "Data Scientist / Customer Delivery Engineer (Contract)",
             "startDate": "2026-03-01",
+            "endDate": "2026-09-01",
             "location": "Chicago, Illinois (Remote)",
             "highlights": [
-                "**Analytics Layer Stewardship:** Own the correctness and interpretability of the EdTech analytics layer, ensuring metrics, segmentation, and dashboards remain trustworthy for school leadership decision-making.",
-                "**Stakeholder-Ready Insights:** Deliver presentation-ready analyses for enterprise accounts, translating raw operational data into segmented, decision-driving narratives for non-technical school leaders.",
-                "**Customer-Facing Analysis:** Diagnose data quality and metric discrepancies for enterprise customers, applying statistical reasoning and domain knowledge to surface root causes rather than just symptoms.",
+                "**K-12 Student Data Quality:** Worked across school partners' student data, including assessment scores, grades, and attendance. Validated it end to end, from source systems to final reports, and wrote automated data tests to catch errors before they reached educators.",
+                "**Analytics Layer Stewardship:** Owned the correctness and interpretability of the EdTech analytics layer, ensuring metrics, segmentation, and dashboards stayed trustworthy for school leadership decision-making.",
+                "**Stakeholder-Ready Insights:** Delivered presentation-ready analyses for enterprise accounts, translating raw operational data into segmented, decision-driving narratives for non-technical school leaders.",
+                "**Customer-Facing Analysis:** Diagnosed data quality and metric discrepancies for enterprise customers, applying statistical reasoning and domain knowledge to surface root causes rather than just symptoms.",
                 "**Analytics Architecture Input:** Consulted using data engineering experience on the company's data architecture roadmap, planning for a Medallion structure on BigQuery to give analytics workflows reproducible, well-tested foundations.",
-                "**Workflow Automation:** Automating recurring analytics workflows so the team can spend more time on high-leverage exploratory analysis and less on manual report production."
+                "**Workflow Automation:** Automated recurring analytics workflows so the team could spend more time on high-leverage exploratory analysis and less on manual report production."
             ]
         },
         {

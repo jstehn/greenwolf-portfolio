@@ -3,8 +3,8 @@
   "basics": {
     "name": "Jack Stehn",
     "label": "Machine Learning Engineer | Data Engineer | Data Scientist",
-    "email": "jack@ste.hn",
-    "image": "https://greenwolf.me/vcard/portrait.jpg",
+    "email": "jack.stehn@protonmail.com",
+    "image": "https://greenwolf.me/imgs/profile.png",
     "summary": "High-agency Data Professional specializing in bridging the gap between 'notebook data science' and production-grade scalable infrastructure. I architect end-to-end systems—from raw ingestion to deploying predictive models that drive revenue. I bring a software engineering mindset to data teams, championing CI/CD, unit testing, and modular design to untangle complexity and build maintainable tools.",
     "location": {
       "city": "San Francisco",
@@ -34,13 +34,16 @@
       "name": "Innovare",
       "position": "Data Analytics & Customer Delivery Engineer (Contract)",
       "startDate": "2026-03-01",
+      "endDate": "2026-09-01",
       "location": "Chicago, Illinois (Remote)",
       "highlights": [
-        "**EdTech Analytics Reliability:** Specialize in the stability and scalability of the EdTech analytics layer, ensuring high-stakes dashboards and datasets are accurate, reliable, and actionable for school leadership teams.",
-        "**Enterprise Customer Delivery:** Manage complex data pipelines, automate manual workflows, and deliver presentation-ready insights for enterprise accounts — translating raw data into decision-ready artifacts for non-technical stakeholders.",
-        "**Data Architecture Consulting:** Co-designing the next-generation data architecture, proposing a transition plan to a Medallion (bronze/silver/gold) infrastructure on BigQuery to improve traceability, testability, costs, and downstream analytics velocity.",
+        "**K-12 Student Data Quality:** Worked across school partners' student data, including assessment scores, grades, and attendance. Validated it end to end, from source systems to final reports, and wrote automated data tests to catch errors before they reached educators.",
+        "**EdTech Analytics Reliability:** Specialized in the stability and scalability of the EdTech analytics layer, ensuring high-stakes dashboards and datasets are accurate, reliable, and actionable for school leadership teams.",
+        "**Enterprise Customer Delivery:** Managed complex data pipelines, automated manual workflows, and delivered presentation-ready insights for enterprise accounts — translating raw data into decision-ready artifacts for non-technical stakeholders.",
+        "**Data Architecture Consulting:** Helped design the next-generation data architecture, proposing a transition plan to a Medallion (bronze/silver/gold) infrastructure on BigQuery to improve traceability, testability, costs, and downstream analytics velocity.",
         "**Modern Stack Proposal:** Proposed adopting a modern open-source stack — Terraform for IaC, dlt for ingestion, dbt for transformation, Dagster for orchestration, Cube.js for semantic layer — to replace ad-hoc workflows with a maintainable, version-controlled, observable platform.",
-        "**Workflow Automation:** Automating previously manual customer delivery workflows to reduce turnaround time and free engineering capacity for higher-leverage analytics work."
+        "**Technical Guidance:** Guided the team's use of dbt and Dagster to build extensible analytical assets, speeding up custom solution deployment across multi-tenant clients.",
+        "**Workflow Automation:** Automated previously manual customer delivery workflows to reduce turnaround time and free engineering capacity for higher-leverage analytics work."
       ]
     },
     {
@@ -55,6 +58,7 @@
         "**Modern Data Stack Architecture:** Architected and built a scalable platform on Google Cloud Platform (GCP). Orchestrated ELT pipelines using Dagster, dbt, and dlt to ingest data from disparate SIS (School Information Systems) and HR platforms.",
         "**Engineering Maturity (ROI):** Engineered a comprehensive People Team data pipeline, reducing manual consistency checks from months of collective annual work to seconds. Built a custom automated data quality framework to catch inconsistencies between systems.",
         "**API Integration & Interoperability:** Solved complex data interoperability challenges by designing integrations between Schoolmint and PowerSchool. Reverse-engineered undocumented APIs to create a unified data model for cross-functional analysis.",
+        "**Cross-Department Data Partner:** Served as the go-to data partner for the Enrollment, HR, and Special Education teams, learning each team's workflows and data needs; built tools the Special Education department uses to work with its own data.",
         "**Data Democratization:** Updated the organization's data security policy and designed data literacy training modules, empowering school leaders to access real-time attendance and academic metrics without technical bottlenecks.",
         "**Survey Design & Enrichment:** Leveraged data to enrich staff satisfaction surveys with demographic, work location, role, grade level, and tenure data, enabling highly segmented and actionable insights.",
         "**Stakeholder Management:** Partnered with leadership on high-impact, data-driven solutions; presented findings to stakeholders including the Board of Directors."
