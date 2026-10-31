@@ -3,6 +3,18 @@
 # `git commit --no-verify`.
 set -e
 
+# GUI git clients (e.g. VS Code) don't load the direnv/Nix dev shell, so node,
+# npm, and PUPPETEER_EXECUTABLE_PATH are missing. Re-run inside the dev shell.
+if ! command -v npm >/dev/null 2>&1 && [ -z "$PRECOMMIT_REEXEC" ]; then
+    export PRECOMMIT_REEXEC=1
+    root=$(git rev-parse --show-toplevel)
+    if command -v direnv >/dev/null 2>&1; then
+        exec direnv exec "$root" "$0" "$@"
+    elif command -v nix >/dev/null 2>&1; then
+        exec nix develop "$root" --command "$0" "$@"
+    fi
+fi
+
 staged=$(git diff --cached --name-only --diff-filter=ACMR)
 [ -z "$staged" ] && exit 0
 

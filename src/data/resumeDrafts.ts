@@ -18,7 +18,7 @@ export const drafts: ResumeDraft[] = [
     { id: 'data-scientist', label: 'Data Scientist', data: resumeDS as typeof resumeEverything },
     { id: 'general', label: 'General', data: resumeDefault as typeof resumeEverything, hidden: true },
     { id: 'everything', label: 'Everything', data: resumeEverything, hidden: true },
-    { id: 'ml-engineer', label: 'ML Engineer', data: resumeMLE as typeof resumeEverything, hidden: true },
+    { id: 'ml-engineer', label: 'ML Engineer', data: resumeMLE as typeof resumeEverything },
     { id: 'software-engineer', label: 'Software Engineer', data: resumeSWE as typeof resumeEverything, hidden: true },
 ];
 
