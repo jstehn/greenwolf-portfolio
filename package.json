@@ -6,10 +6,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "postbuild": "node scripts/generate-pdf.mjs",
+    "build:force-pdf": "astro build && node scripts/generate-pdf.mjs --force",
     "preview": "npm run build && wrangler dev",
     "astro": "astro",
     "deploy": "npm run build && wrangler deploy",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",

@@ -3,7 +3,7 @@
         "name": "Jack Stehn",
         "label": "Machine Learning Engineer | Data Engineer | Data Scientist",
         "email": "jack.stehn@protonmail.com",
-        "summary": "High-agency Data Professional with a unique background blending rigorous social science research with production-grade engineering. I specialize in bridging the gap between 'notebook data science' and scalable infrastructure. I architect end-to-end data systems—from raw ingestion to deploying predictive models—and bring a software engineering mindset to data teams.",
+        "summary": "High-agency Data Professional blending rigorous social science research with production-grade engineering. I architect end-to-end data systems, from raw ingestion to deployed predictive models, and bring a software engineering mindset to data teams.",
         "location": {
             "city": "San Francisco",
             "region": "California",
@@ -36,11 +36,9 @@
             "location": "Chicago, Illinois (Remote)",
             "highlights": [
                 "**K-12 Student Data Quality:** Worked across school partners' student data, including assessment scores, grades, and attendance. Validated it end to end, from source systems to final reports, and wrote automated data tests to catch errors before they reached educators.",
-                "**EdTech Analytics Reliability:** Specialized in the stability and scalability of the EdTech analytics layer, ensuring high-stakes dashboards and datasets are accurate, reliable, and actionable for school leadership teams.",
-                "**Enterprise Customer Delivery:** Managed complex data pipelines, automated manual workflows, and delivered presentation-ready insights for enterprise accounts — translating raw data into decision-ready artifacts for non-technical stakeholders.",
-                "**Data Architecture Consulting:** Helped design the next-generation data architecture, proposing a transition plan to a Medallion (bronze/silver/gold) infrastructure on BigQuery to improve traceability, testability, costs, and downstream analytics velocity.",
-                "**Modern Stack Proposal:** Proposed adopting a modern open-source stack — Terraform for IaC, dlt for ingestion, dbt for transformation, Dagster for orchestration, and Cube.js for semantic layer — to replace ad-hoc workflows with a maintainable, version-controlled, observable platform.",
-                "**Workflow Automation:** Automated previously manual customer delivery workflows to reduce turnaround time and free engineering capacity for higher-leverage analytics work."
+                "**Enterprise Customer Delivery:** Managed data pipelines and delivered presentation-ready insights for enterprise accounts, turning raw data into decisions for non-technical staff.",
+                "**Data Architecture:** Helped design a Medallion (bronze/silver/gold) architecture on BigQuery and proposed an open-source stack (Terraform, dlt, dbt, Dagster, Cube.js) to replace ad-hoc workflows.",
+                "**Workflow Automation:** Automated manual customer delivery workflows, reducing turnaround time and freeing engineering capacity for analytics work."
             ]
         },
         {
@@ -50,12 +48,12 @@
             "endDate": "2025-10-01",
             "location": "Richmond, California",
             "highlights": [
-                "**Strategic Leadership (Solo Data Lead):** Owned the full data lifecycle (DS, DE, ML) as the sole data scientist. Partnered directly with C-suite and department heads to navigate a 'zero-to-one' environment.",
-                "**Predictive ML & Risk Modeling:** Developed and deployed explainable ML models to predict staff turnover. Engineered a 'Risk Tolerance' configuration allowing non-technical leadership to adjust precision/recall thresholds.",
+                "**Strategic Leadership (Solo Data Lead):** Owned the full data lifecycle (DS, DE, ML) as sole data scientist, partnering with the C-suite.",
+                "**Predictive ML & Risk Modeling:** Deployed explainable staff-turnover models with a 'Risk Tolerance' setting for leadership to tune.",
                 "**Modern Data Stack Architecture:** Architected a scalable platform on GCP. Orchestrated ELT pipelines using Dagster, dbt, and dlt to ingest data from disparate SIS and HR platforms.",
                 "**Engineering Maturity (ROI):** Engineered a comprehensive People Team data pipeline, reducing manual consistency checks from months of collective annual work to seconds.",
-                "**Survey Design & Enrichment:** Leveraged data to enrich staff satisfaction surveys with demographic, work location, role, grade level, and tenure data, enabling highly segmented and actionable insights.",
-                "**Data Democratization:** Updated the organization's data security policy and designed data literacy training modules, empowering school leaders to access real-time metrics without technical bottlenecks."
+                "**Survey Design & Enrichment:** Enriched staff surveys with demographic, location, role, grade, and tenure data for segmented insights.",
+                "**Data Democratization:** Updated the data security policy and built data literacy trainings so school leaders could self-serve metrics."
             ]
         },
         {
@@ -66,9 +64,9 @@
             "location": "San Mateo, California",
             "highlights": [
                 "**Business Impact:** Contributed to product enhancements that achieved 33% faster ramp times, 16% higher revenue, and 15x ROI for customers.",
-                "**Production ML (Revenue):** Developed and deployed production ML models for Propensity Scoring and Churn Modeling. Leveraged NLP on unstructured email metadata to identify sales signals.",
+                "**Production ML (Revenue):** Deployed Propensity Scoring and Churn models, using NLP on unstructured email metadata to identify sales signals.",
                 "**Pipeline Architecture (AWS):** Led a critical overhaul of the AWS data infrastructure. Implemented 'SQL Push-down' strategies and asynchronous DAGs, reducing data processing latency by 75%.",
-                "**Causal Analysis:** Performed deep causal inference studies to isolate specific sales behaviors that drive outcomes, influencing the product roadmap to focus on 'high-leverage' user actions.",
+                "**Causal Analysis:** Ran causal inference studies isolating the sales behaviors that drive outcomes, steering the product roadmap.",
                 "**Engineering Best Practices:** Championed the adoption of CI/CD pipelines (GitHub Actions), unit testing (pytest), and Agile methodologies."
             ]
         },
@@ -81,8 +79,7 @@
             "highlights": [
                 "**Leadership:** Led data science components for mixed-methods studies on equity and public health. Managed a team of undergraduates.",
                 "**Unstructured Data:** Analyzed diverse unstructured and non-traditional datasets requiring the development of novel data processing approaches.",
-                "**Geospatial Analysis:** Performed geospatial analysis (ArcGIS) to identify and visualize spatial patterns for non-technical stakeholders.",
-                "**Visualization:** Created interactive dashboards (Tableau, Plotly) to communicate findings to stakeholders."
+                "**Geospatial Analysis:** Performed geospatial analysis (ArcGIS) to identify and visualize spatial patterns for non-technical stakeholders."
             ]
         }
     ],

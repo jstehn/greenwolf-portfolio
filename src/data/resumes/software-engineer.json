@@ -3,7 +3,7 @@
         "name": "Jack Stehn",
         "label": "Software Engineer",
         "email": "jack.stehn@protonmail.com",
-        "summary": "Software Engineer with deep expertise building production systems at the intersection of data and software. I bring strong engineering practices—testing, modular design, and clean code—to full-stack applications, API integrations, and scalable cloud infrastructure. I have experience leading cross-functional technical initiatives in high-growth environments.",
+        "summary": "Software Engineer who builds production systems at the intersection of data and software. I bring strong engineering practices (testing, modular design, clean code) to APIs, integrations, and cloud infrastructure, and have led cross-functional technical initiatives.",
         "location": {
             "city": "San Francisco",
             "region": "California",
@@ -36,10 +36,9 @@
             "location": "Chicago, Illinois (Remote)",
             "highlights": [
                 "**System Reliability:** Owned the stability and scalability of production data systems serving enterprise customers, treating analytics infrastructure as a software product with uptime, correctness, and performance requirements.",
-                "**Architecture Consulting:** Helped design the next-generation system architecture, proposing a Medallion (bronze/silver/gold) layered design on BigQuery with clear interface contracts and separation of concerns between ingestion, transformation, and serving.",
-                "**Modern Toolchain Advocacy:** Proposed migrating to a version-controlled, test-driven stack (Terraform, dlt, dbt, Dagster, Cube.js) to replace ad-hoc scripts — bringing CI/CD, code review, and observability practices to a domain that often lacks them.",
-                "**Workflow Automation:** Designed and built automated workflows that replaced manual, error-prone delivery processes — reducing turnaround time and eliminating recurring operational toil.",
-                "**Cross-System Integration:** Engineered integrations across disparate enterprise systems, accounting for schema evolution, failure modes, and the realities of multi-tenant production environments."
+                "**Architecture Consulting:** Helped design a Medallion architecture on BigQuery with clear layer contracts from ingestion to serving.",
+                "**Modern Toolchain Advocacy:** Proposed replacing ad-hoc scripts with a tested, version-controlled stack: Terraform, dlt, dbt, Dagster, Cube.js.",
+                "**Workflow Automation:** Designed and built automated workflows that replaced manual, error-prone delivery processes — reducing turnaround time and eliminating recurring operational toil."
             ]
         },
         {
@@ -51,8 +50,8 @@
             "highlights": [
                 "**Platform Architecture:** Architected and built a scalable data platform on GCP, orchestrating automated pipelines using Dagster, dbt, and dlt with comprehensive test coverage.",
                 "**API Integration & Interoperability:** Solved complex system interoperability challenges by designing integrations between Schoolmint and PowerSchool. Reverse-engineered undocumented APIs to create a unified data model.",
-                "**Engineering Maturity (ROI):** Built a custom automated data quality framework, reducing manual consistency checks from months of annual work to seconds.",
-                "**Data Democratization:** Updated the organization's data security policy and designed training modules, empowering non-technical staff to access real-time metrics."
+                "**Engineering Maturity (ROI):** Automated data quality checks, cutting manual consistency work from months a year to seconds.",
+                "**Data Democratization:** Updated the data security policy and built trainings so non-technical staff could access real-time metrics."
             ]
         },
         {
@@ -62,12 +61,12 @@
             "endDate": "2023-02-01",
             "location": "San Mateo, California",
             "highlights": [
-                "**Pipeline Architecture (AWS):** Led a critical overhaul of the AWS data infrastructure (S3, Athena, EMR). Implemented 'SQL Push-down' strategies and asynchronous DAGs, reducing data processing latency by 75% and scaling to multi-terabyte datasets.",
-                "**Engineering Best Practices:** Championed the adoption of CI/CD pipelines (GitHub Actions), unit testing (pytest), and Agile methodologies within the data science team.",
+                "**Pipeline Architecture (AWS):** Led an AWS data infrastructure overhaul (S3, Athena, EMR), cutting processing latency 75% at multi-TB scale.",
+                "**Engineering Best Practices:** Championed CI/CD (GitHub Actions), unit testing (pytest), and Agile within the data science team.",
                 "**Scalable Data Modeling:** Architected scalable Star Schema data models and optimized ETL/ELT processes, ensuring data readiness for LLM integration.",
-                "**Business Impact:** Contributed to product enhancements that achieved 33% faster ramp times, 16% higher revenue, and 15x ROI for customers.",
-                "**Cross-Functional Leadership:** Collaborated with Engineering, Product, and Support teams to spec out large-scale infrastructure restructuring.",
-                "**Technical Consulting:** Acted as a technical consultant for enterprise customers, diagnosing complex data discrepancies and proposing architectural solutions."
+                "**Business Impact:** Contributed to product enhancements that achieved 33% faster ramp times, 16% higher revenue, and 15x customer ROI.",
+                "**Cross-Functional Leadership:** Worked with Engineering, Product, and Support to spec a large-scale infrastructure restructuring.",
+                "**Technical Consulting:** Diagnosed data discrepancies for enterprise customers and proposed architectural fixes."
             ]
         },
         {
@@ -77,7 +76,7 @@
             "endDate": "2019-08-01",
             "location": "Pittsburg, California",
             "highlights": [
-                "**Full Stack Development:** Independently designed and developed a web application (Python, JavaScript, PHP, PostgreSQL) to guide student program selection.",
+                "**Full Stack Development:** Built a web app (Python, JavaScript, PHP, PostgreSQL) to guide students' program selection.",
                 "**Data Acquisition:** Built a database of 500+ university programs via web scraping (Beautiful Soup) and rigorous data cleaning.",
                 "**UX/UI:** Created an intuitive management dashboard for non-technical staff.",
                 "**Stakeholder Consulting:** Consulted with college stakeholders (district, counselors) to define user needs."

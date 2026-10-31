@@ -4,7 +4,9 @@ import { visibleDrafts as drafts, defaultDraftId } from "../data/resumeDrafts";
 
 function formatDate(dateStr: string): string {
     const [year, month, day] = dateStr.split("-").map(Number);
-    const date = new Date(year, month - 1, day);
+    // JSON Resume allows year-only dates ("2021"); don't invent a month
+    if (!month) return String(year);
+    const date = new Date(year, month - 1, day || 1);
     return date.toLocaleDateString("en-US", {
         month: "short",
         year: "numeric",

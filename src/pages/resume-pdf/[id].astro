@@ -27,9 +27,11 @@ const { basics: db, work, education } = draft.data as any;
         <meta charset="UTF-8" />
         <title>Resume — {db.name}</title>
         <style>
+            /* Vertical margins live on @page so every page gets them, not just
+               the top of page 1 */
             @page {
                 size: letter;
-                margin: 0;
+                margin: 24px 0;
             }
             :root {
                 --font-sans: "Inter", -apple-system, BlinkMacSystemFont,
@@ -50,7 +52,7 @@ const { basics: db, work, education } = draft.data as any;
                 font-family: var(--font-sans);
                 color: var(--color-text);
                 margin: 0;
-                padding: 24px 32px;
+                padding: 0 32px;
                 box-sizing: border-box;
                 font-size: 9.5pt;
                 line-height: 1.35;
@@ -107,6 +109,8 @@ const { basics: db, work, education } = draft.data as any;
                 margin: 0 0 var(--space-2);
                 border-bottom: 1px solid var(--color-border);
                 padding-bottom: var(--space-1);
+                /* Never leave a section heading alone at the bottom of a page */
+                break-after: avoid;
             }
             .resume-summary {
                 font-size: 10pt;

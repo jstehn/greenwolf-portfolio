@@ -5,8 +5,16 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import resume from "../../data/resumes/everything.json";
 import { getCollection } from "astro:content";
 
+interface Project {
+    name: string;
+    summary: string;
+    keywords: string[];
+    url?: string;
+    source: "resume" | "content";
+}
+
 // Load projects from resume.json
-const resumeProjects = resume.projects.map((p) => ({
+const resumeProjects: Project[] = resume.projects.map((p) => ({
     name: p.name,
     summary: p.summary,
     keywords: p.keywords || [],
@@ -15,7 +23,7 @@ const resumeProjects = resume.projects.map((p) => ({
 }));
 
 // Load additional projects from content collection (if any)
-let contentProjects: typeof resumeProjects = [];
+let contentProjects: Project[] = [];
 try {
     const collection = await getCollection("projects");
     contentProjects = collection.map((p) => ({

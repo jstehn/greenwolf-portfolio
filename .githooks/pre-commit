@@ -1,0 +1,35 @@
+#!/bin/sh
+# Installed by `npm install` (see "prepare" in package.json). Bypass with
+# `git commit --no-verify`.
+set -e
+
+staged=$(git diff --cached --name-only --diff-filter=ACMR)
+[ -z "$staged" ] && exit 0
+
+# 1. Conflict markers and whitespace errors in the lines being added
+git diff --cached --check
+
+# 2. Staged JSON must parse (checks the staged blob, not the working tree)
+for f in $(echo "$staged" | grep '\.json$' || true); do
+    # shellcheck disable=SC2016 # single quotes are intentional: this is JS for node
+    git show ":$f" | node -e '
+        let s = ""; process.stdin.on("data", d => s += d).on("end", () => {
+            try { JSON.parse(s) } catch (e) { console.error(`Invalid JSON in ${process.argv[1]}: ${e.message}`); process.exit(1) }
+        })' "$f"
+done
+
+# 3. Rebuild resume PDFs when their inputs are staged. These must match
+#    sharedInputs + src/data/resumes/*.json in scripts/generate-pdf.mjs.
+pdf_inputs='^src/data/resumes/.*\.json$|^src/data/resumeDrafts\.ts$|^src/pages/resume-pdf/\[id\]\.astro$'
+if echo "$staged" | grep -Eq "$pdf_inputs"; then
+    # The build reads the working tree, so it must match what's being committed
+    if git diff --name-only | grep -Eq "$pdf_inputs"; then
+        echo "pre-commit: resume inputs have unstaged changes; stage or stash them so the PDFs match the commit." >&2
+        exit 1
+    fi
+
+    echo "pre-commit: resume inputs changed, rebuilding PDFs..."
+    # PDF_STRICT makes a missing Chrome an error instead of a silent skip
+    PDF_STRICT=1 npm run build --silent
+    git add public/resumes/*.pdf scripts/pdf-hashes.json
+fi
