@@ -43,7 +43,8 @@
         "**Data Architecture Consulting:** Helped design the next-generation data architecture, proposing a transition plan to a Medallion (bronze/silver/gold) infrastructure on BigQuery to improve traceability, testability, costs, and downstream analytics velocity.",
         "**Modern Stack Proposal:** Proposed adopting a modern open-source stack — Terraform for IaC, dlt for ingestion, dbt for transformation, Dagster for orchestration, Cube.js for semantic layer — to replace ad-hoc workflows with a maintainable, version-controlled, observable platform.",
         "**Technical Guidance:** Guided the team's use of dbt and Dagster to build extensible analytical assets, speeding up custom solution deployment across multi-tenant clients.",
-        "**Workflow Automation:** Automated previously manual customer delivery workflows to reduce turnaround time and free engineering capacity for higher-leverage analytics work."
+        "**Workflow Automation:** Automated previously manual customer delivery workflows to reduce turnaround time and free engineering capacity for higher-leverage analytics work.",
+        "**Customer Data Verification Tool:** Built a tool for the Customer Success team to verify that incoming customer data loaded correctly, and wrote a guide so they could run it on their own."
       ]
     },
     {
@@ -90,7 +91,7 @@
       "highlights": [
         "**Leadership:** Led data science components for mixed-methods studies on equity and public health (specifically violence against homeless youth). Managed a team of undergraduates.",
         "**Unstructured Data:** Analyzed diverse unstructured and non-traditional datasets (qualitative interviews, geospatial data, text corpora, hand-drawn maps) requiring the development of novel data processing approaches.",
-        "**Geospatial Analysis:** Performed geospatial analysis (ArcGIS) to identify and visualize spatial violence patterns for non-technical stakeholders.",
+        "**Geospatial Analysis:** Led geospatial analysis of violence against homeless youth in San Francisco, combining location data with Census geography (ArcGIS, GeoPandas, GeoJSON) to identify and visualize spatial patterns for non-technical stakeholders.",
         "**Visualization:** Created interactive dashboards (Tableau, Plotly) to communicate findings to stakeholders.",
         "**Interdisciplinary Collaboration:** Collaborated across disciplines (public health, psychology, sociology) ensuring ethical, robust research."
       ]
@@ -190,7 +191,14 @@
         "LLM Evaluation & Benchmarking",
         "Open-Weights Models (Llama)",
         "LLM API Integration (OpenAI)",
-        "LLM Deployment Considerations"
+        "LLM Deployment Considerations",
+        "MCP Tool Servers",
+        "Tool Schemas for Agents",
+        "Local LLM Hosting (Ollama)",
+        "AI Coding Agents (Claude Code)",
+        "Vector Search (pgvector)",
+        "Embeddings (sentence-transformers)",
+        "Speech-to-Text (Whisper)"
       ]
     },
     {
@@ -204,7 +212,18 @@
         "ETL/ELT Design & Implementation",
         "API Design & Integration",
         "Docker & Containerization",
-        "MLOps Principles & Tools"
+        "MLOps Principles & Tools",
+        "Geospatial (GeoPandas, Shapely)",
+        "GeoJSON & Census Data",
+        "Web Scraping",
+        "Selenium",
+        "Beautiful Soup",
+        "Terraform (IaC)",
+        "PostgreSQL Row-Level Security",
+        "Parquet & Columnar Storage",
+        "Object Storage / Compute Separation",
+        "Data Lineage & SLAs",
+        "Coordinate Reference Systems"
       ]
     },
     {
@@ -218,7 +237,8 @@
         "CI/CD Pipelines (GitHub Actions)",
         "Version Control (Git, GitHub)",
         "Agile Methods (Scrum, Kanban)",
-        "Code Review & Collaboration"
+        "Code Review & Collaboration",
+        "E2E Testing (Playwright, Vitest)"
       ]
     },
     {
@@ -263,10 +283,13 @@
         "Java",
         "JavaScript",
         "HTML/CSS",
-        "Databases (PostgreSQL, MySQL)",
-        "Web Scraping (Beautiful Soup, Selenium)",
+        "Databases (PostgreSQL, MySQL, DuckDB)",
         "Apache Spark (PySpark basics)",
-        "Jupyter Notebooks & Lab"
+        "Jupyter Notebooks & Lab",
+        "TypeScript",
+        "Next.js",
+        "FastAPI",
+        "Streamlit"
       ]
     }
   ],
@@ -290,6 +313,122 @@
         "Data Engineering"
       ],
       "url": "https://github.com/jstehn/dagster-people-team-pipeline"
+    },
+    {
+      "name": "Self-Hosted LLM Agent Tooling",
+      "summary": "Self-hosted LLM agents that act on my own email, tasks, documents, and home through tools I designed and secured.",
+      "highlights": [
+        "**Self-Hosted Agent (Hermes):** Deployed Nous Research's Hermes agent as a sandboxed NixOS service on a local Ollama model, used over Telegram, with custom skills for email triage, task and habit tracking, document search, and smart-home control, plus a scheduled 7:00 daily digest.",
+        "**Least-Privilege Tool Design:** Wrote a credential broker that is the only holder of service tokens and exposes narrow commands to the agent (read-only email apart from labels, read-only documents and calendar), a hook that blocks unsafe tool calls, and Telegram approve/deny for risky shell commands.",
+        "**MCP Tool Integration:** Connect Claude Code and Hermes to self-hosted services over MCP, giving agents typed tools that act on real data instead of guessing.",
+        "**Model Evaluation:** Built a script that compares local models on real agent tasks to choose which one to run.",
+        "**Reproducible Infrastructure:** Declare the whole stack as code on a Proxmox / NixOS home lab (Nix modules, Docker Compose, agenix-managed secrets)."
+      ],
+      "keywords": [
+        "Python",
+        "LLM Agents",
+        "MCP",
+        "Hermes Agent",
+        "Ollama",
+        "Claude Code",
+        "NixOS",
+        "Proxmox",
+        "Docker"
+      ]
+    },
+    {
+      "name": "Semantic Search & Recommendation Engine",
+      "summary": "Personal project: a crawler, archive, and recommendation web app for an online fiction community, built to search and discover stories by meaning rather than keywords.",
+      "highlights": [
+        "**Polite Crawler:** Built an authenticated crawler with request delays, page limits, and incremental update checks that fetch only new content, parsing pages into structured story, series, and author records.",
+        "**Vector Search:** Stored the archive in PostgreSQL with pgvector and an HNSW index; encoded each document with a sentence-transformers model (BGE-large) and ranked by cosine similarity, with a TF-IDF tag-overlap fallback.",
+        "**Ranking Logic:** Boosted same-author results, excluded trivial matches, weighted likes above reads, diversified results per author, and topped up short lists with top-rated content.",
+        "**Engineering:** FastAPI web app with full-text search, a hand-written SQL migration runner, a SQLite-to-PostgreSQL migration, and a pytest suite run against real Postgres (testcontainers)."
+      ],
+      "keywords": [
+        "Python",
+        "Web Crawling",
+        "PostgreSQL",
+        "pgvector",
+        "Embeddings",
+        "sentence-transformers",
+        "FastAPI",
+        "pytest"
+      ]
+    },
+    {
+      "name": "DataSF Employee Compensation Pipeline",
+      "summary": "End-to-end pipeline for San Francisco's public Employee Compensation dataset, built on PostgreSQL with each design choice mapped to its Snowflake equivalent.",
+      "highlights": [
+        "**Analytics Engineering:** pandas ingestion into a raw landing schema, then dbt staging (type casting, deduplication) and marts (total compensation, tenure brackets).",
+        "**Access Control:** Row-level security policies, a security-definer masking view, and a public-safe aggregate view, with pytest tests verifying what each role can and can't see.",
+        "**Infrastructure as Code & CI:** Terraform manages roles, grants, default privileges, and per-role resource limits; CI runs terraform plan plus dbt compile and test on every pull request."
+      ],
+      "keywords": [
+        "Python",
+        "dbt",
+        "PostgreSQL",
+        "Terraform",
+        "Row-Level Security",
+        "Data Masking",
+        "CI/CD",
+        "Snowflake Patterns"
+      ]
+    },
+    {
+      "name": "Proxy Library (TypeScript Learning Project)",
+      "summary": "Self-hosted web app for a Magic: The Gathering playgroup, built to learn TypeScript and practice team-style engineering. Most code was written by an AI coding assistant (Claude Code) against design documents I set and reviewed.",
+      "highlights": [
+        "**Full-Stack TypeScript:** Next.js, Drizzle ORM, and better-auth, covering collections, trading, an append-only money ledger, live drafts, a searchable deck builder, and PDF export.",
+        "**Data Sync:** Nightly sync and caching of card data from the MTGJSON and Scryfall APIs.",
+        "**Engineering Process:** A design document approved before each phase, architecture decision records, unit and integration tests (Vitest), end-to-end browser tests (Playwright), and Docker deployment on my home server."
+      ],
+      "keywords": [
+        "TypeScript",
+        "Next.js",
+        "Drizzle ORM",
+        "Vitest",
+        "Playwright",
+        "Docker",
+        "AI-Assisted Development"
+      ],
+      "url": "https://github.com/jstehn/proxy-library"
+    },
+    {
+      "name": "Chorus Memo (Choral Music Practice App)",
+      "summary": "Private web app for memorizing choral music, running entirely on local hardware with no paid or online services.",
+      "highlights": [
+        "**Speech & Audio ML:** Times lyrics to practice tracks with local Whisper transcription (faster-whisper) and analyzes audio with librosa for a waveform practice player with A/B looping and slowdown.",
+        "**Document Extraction:** Pulls lyrics by voice part from score PDFs (PyMuPDF, OCR for scans) and reads a part's notes with optical music recognition (Audiveris) to build a singer line and MIDI.",
+        "**Incremental Import:** Imports MobileSheets set-list exports, adding only what's new and detecting voice parts from file names."
+      ],
+      "keywords": [
+        "Python",
+        "FastAPI",
+        "Whisper",
+        "librosa",
+        "PyMuPDF",
+        "OCR",
+        "Docker"
+      ]
+    },
+    {
+      "name": "San Francisco Public Transit Datathon (Jan 2021)",
+      "summary": "Analyzed public transportation availability in San Francisco and proposed an on-demand shuttle service, mainly for riders with disabilities, with shuttles stationed around the city to pick people up on request.",
+      "keywords": [
+        "Python",
+        "GeoPandas",
+        "Shapely",
+        "GeoJSON",
+        "Census Data",
+        "Spatial Joins",
+        "Site Selection",
+        "Accessibility"
+      ],
+      "highlights": [
+        "**Transit Access Analysis:** Joined transit data with Census GeoJSON boundaries and demographics (GeoPandas, Shapely) to map where public transportation availability was weakest.",
+        "**Shuttle Placement:** Used that analysis to choose where to station shuttles so they could reach the most riders who needed them."
+      ]
     },
     {
       "name": "ResumeLLM (AI Agent for Resume Tailoring)",
@@ -389,7 +528,7 @@
     {
       "organization": "San Francisco LGBTQ+ Street Fair",
       "position": "Director of Entertainment & Co-Producer",
-      "startDate": "2021",
+      "startDate": "2021-10-01",
       "highlights": [
         "**Event Production:** Co-produced large-scale (~10k attendees) LGBTQ+ community street fair, overseeing all aspects from planning through execution.",
         "**Logistics Management:** Managed complex logistics, ~100 vendor relations, and multi-stage entertainment programming.",
@@ -455,6 +594,10 @@
   ],
   "references": [
     {
+      "name": "Amanda Szramiak (Worked with Jack on the same team at Innovare) - Customer Success Manager",
+      "reference": "I'm glad to recommend Jack Stehn. Jack and I worked together at an ed-tech company, where I was a Customer Success Manager and Jack was Data Analytics & Customer Delivery Engineer. Jack was the person the team relied on for anything involving data. In the time we worked together, Jack was one of the most dependable colleagues I've had: when they committed to something, I knew it would get done.\n\nJack has a real talent for spotting problems early. They regularly caught and fixed issues before anyone else realized something was wrong, and when they found a bug they didn't stop at flagging it. They often shipped the fix themselves. That instinct reached beyond their own work, too. When Jack saw potential problems in a data pipeline and infrastructure plan from another team, they took the initiative to review it and proposed concrete changes based on their own experience.\n\nMuch of what Jack did had no playbook. When they joined, many of their responsibilities were things they had to figure out for themselves, and they did: learning new systems quickly, building dashboards, and getting up to speed on education data. They learned all about assessments, attendance, behavior data, and the other pieces that make K-12 data complicated, and that knowledge made them a resource for the rest of the team.\n\nJack also made the people around them more effective. They documented processes carefully and kept looking for ways to make our work more efficient. When my team needed a way to verify that customer data was coming in correctly, Jack built a tool for it and wrote a guide so the rest of us could use it on our own.\n\nJust as important, Jack is a genuinely kind colleague. They listened to people's challenges and helped whenever they could.\n\nI would gladly work with Jack again, and I'm confident they'll be a strong addition to any team."
+    },
+    {
       "name": "Oscar Vidal (Worked with Jack on the same team at Innovare) - Lead SDET | QA Automation Architect",
       "reference": "I enjoyed working with Jack at Innovare. They had a good eye for the data behind our dashboards and were quick to speak up when something didn't look right. While exploring the platform, they raised issues and provided the context and evidence needed to understand them, which helped improve the overall user experience.\n\nJack was always willing to learn, ask questions, and share what they knew. They picked things up quickly, were patient when helping, and were always willing to help when something needed attention.\n\nI recommend Jack to any team looking for someone who cares about the quality of their work and keeps learning."
     },
@@ -471,15 +614,15 @@
       "reference": "Jack is a sharp, human-first data person. They possess incredible passion for doing what is right and making good science happen. I highly recommend their work and their presence."
     },
     {
-      "name": "Sarah Nam (Worked with Jack on the same team at SetSail) - Senior Associate at Cancer Navigator",
+      "name": "Sarah Hwang (Worked with Jack on the same team at SetSail) - Senior Data Engineer at CancerNavigator",
       "reference": "Jack was an integral part of the planning and designing of data pipeline overhaul at SetSail. Even with a moving target and many dependencies, Jack was able to adjust the design of our new pipeline, maintaining conversations across the product and engineering teams as the project progressed. They are also a fast learner and willing to dig into new technologies, which I really admired as their coworker. They would be a great addition to any team looking for a fast-learning and flexible data scientist."
     },
     {
-      "name": "Danny Pan (Managed Jack directly at SetSail) - Data Science",
+      "name": "Danny Pan (Managed Jack directly at SetSail) - AI Engineer",
       "reference": "Jack is a hard-working Data Scientist with a keen eye for details. Their passion for data analytics and software development really stands out when tasked with complex problems.\n\nAt SetSail, Jack worked on a variety of projects that involved teasing out actionable insights from complex data sets, enhancing modeling capabilities through feature development and algorithm development, and building out a data ETL process that transformed the data infrastructure to help SetSail scale for enterprise customer needs. In addition to these technical skills, Jack's collaborative work with the engineering and product team continually earned praises from fellow coworkers. They were never shy and was always proactive to jump in and help solve a problem.\n\nI highly recommend Jack as a Data Scientist and Data Engineer for any organization. Their technical skill and work ethic will be immediately apparent upon joining any team. Feel free to reach out to me as I am happy to provide additional reference or information as desired."
     },
     {
-      "name": "Josh Mantovani, M.A. (Senior to Jack, worked together at SetSail) - Data Scientist / Engineer",
+      "name": "Josh Mantovani, M.A. (Senior to Jack, worked together at SetSail) - AI Engineer | MA Psychological Science",
       "reference": "I had the privilege of working alongside Jack at SetSail, and I can confidently say that they are a top-notch data scientist. Jack's expertise in data science, combined with their passion for software engineering, make them a valuable asset to any team. They have a keen ability to plan and lead complex cross functional projects and their software engineering skills are second to none. Jack's enthusiasm for learning is contagious, and they are always eager to dive into new projects and technologies. They are a great communicator and are able to explain technical concepts in a way that is easy for both technical and non-technical colleagues to understand. On top of all that, Jack is one of the kindest and most genuine people I've had the pleasure of working with. They truly care about their team and go above and beyond to support them. I highly recommend Jack for any data science or software developer role, and I have no doubt that they will excel in their next endeavor."
     },
     {
@@ -487,12 +630,16 @@
       "reference": "I am happy to recommend Jack for a variety of roles and positions. Jack is a motivated self-starter who loves to accomplish project tasks while developing and implementing smooth processes in their work environments. Jack is an accomplished leader, utilizing problem-solving skills to support their own work and the work of their colleagues and peers, taking time to ensure that their team has the skills, knowledge, and resources they need to finish their tasks and projects effectively. Jack has a wide array of skills that they readily apply to their work, and they are ready to search for answers and learn new skills to address problems that arise in their projects. Then they are ready and willing to teach peers and colleagues how to utilize those new skills, supporting team-based processes and accomplishing team projects and goals in addition to their own individual work. Jack is a leader who uses imagination, experience, and empathy to create sustainable processes and consistently complete their goals. I am happy to recommend Jack and I am confident that Jack will be a positive asset to any work that they set out to complete."
     },
     {
-      "name": "Conan Minihan (Jack was Project Lead for SFYEAH Research Project) - Data Scientist, PhD Student",
+      "name": "Conan Minihan (Jack was Project Lead for SFYEAH Research Project) - Data Scientist | NSF Graduate Fellow | PhD Student @ the Halıcıoğlu Data Science Institute, UCSD",
       "reference": "I have had the great fortune of having Jack as project lead on the SFYEAH Research Project. One word to describe Jack, I would say \"Integrity\", Jack holds themself to the highest standard. It shows in the work they produce, Jack is meticulous. Jack is skilled coder and data scientist, with a wealth of geospatial analysis knowledge. They are are first rate leader, and an exceptional communicator. Jack keeps everyone on the same page, and is incredibly thorough. It is an absolute pleasure to work with Jack."
     },
     {
-      "name": "Eva Smolentseva (Worked with Jack on same research team at UC Berkeley) - Analyzing Natural Language Models @USAA",
+      "name": "Eva Smolentseva (Worked with Jack on same research team at UC Berkeley) - Senior Data Analyst",
       "reference": "Jack and I worked on the same research team and they effortlessly evolved into a pillar of leadership and direction. It's been an absolute pleasure and relief to be able to work alongside them. Jack learned quickly and worked beyond the expected and required amount to ensure deadlines and quality were kept. It truly astounded me how enthusiastic and exceptionally intelligent Jack was as I watched them surpass most of the team in their domain of expertise and knowledge in a matter of weeks. Jack's passion for details, design, and accuracy has made them one of the strongest assets on our team.\n\nTheir work ethic and energy have and are contagiously inspiring and addicting to be around. Jack is just one of those people that you want on your team in every scenario because they really own the title \"jack of all trades\""
+    },
+    {
+      "name": "Edward Beanes, MA (Managed Jack directly at Los Medanos College) - Higher Ed Career Development Strategist",
+      "reference": "Jack is an outstanding student ambassador for our community college transfer career services office. They have performed work with enthusiasm and smarts. They are inquisitive, complete their assignments on a timely basis, and offer a spirit of warmth and support for all students from diverse backgrounds who seek transfer & career guidance. Their collegiality among their peers is also worth noting. They communicate well and are sensitive and empathetic towards those who need a helping hand. They are computer proficient, a computer science major, and assist with problem solving to completion. As a leader of our ambassadors, they have exhibited core employability skills that any employer would want in an intern/future employee. I fully recommend Jack as a future professional, and a gifted team player who balances both their interpersonal strengths with their caring mannerisms."
     }
   ]
 }

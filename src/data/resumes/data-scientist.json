@@ -206,7 +206,7 @@
         {
             "organization": "San Francisco LGBTQ+ Street Fair",
             "position": "Director of Entertainment & Co-Producer",
-            "startDate": "2021",
+            "startDate": "2021-10-01",
             "highlights": [
                 "**Event Production:** Co-produced large-scale (~10k attendees) LGBTQ+ community street fair, overseeing all aspects from planning through execution.",
                 "**Logistics Management:** Managed complex logistics, ~100 vendor relations, and multi-stage entertainment programming.",
@@ -244,15 +244,15 @@
             "reference": "Jack is a sharp, human-first data person. They possess incredible passion for doing what is right and making good science happen. I highly recommend their work and their presence."
         },
         {
-            "name": "Sarah Nam (Worked with Jack on the same team at SetSail) - Senior Associate at Cancer Navigator",
+            "name": "Sarah Hwang (Worked with Jack on the same team at SetSail) - Senior Data Engineer at CancerNavigator",
             "reference": "Jack was an integral part of the planning and designing of data pipeline overhaul at SetSail. Even with a moving target and many dependencies, Jack was able to adjust the design of our new pipeline, maintaining conversations across the product and engineering teams as the project progressed. They are also a fast learner and willing to dig into new technologies, which I really admired as their coworker. They would be a great addition to any team looking for a fast-learning and flexible data scientist."
         },
         {
-            "name": "Danny Pan (Managed Jack directly at SetSail) - Data Science",
+            "name": "Danny Pan (Managed Jack directly at SetSail) - AI Engineer",
             "reference": "Jack is a hard-working Data Scientist with a keen eye for details. Their passion for data analytics and software development really stands out when tasked with complex problems.\n\nAt SetSail, Jack worked on a variety of projects that involved teasing out actionable insights from complex data sets, enhancing modeling capabilities through feature development and algorithm development, and building out a data ETL process that transformed the data infrastructure to help SetSail scale for enterprise customer needs. In addition to these technical skills, Jack's collaborative work with the engineering and product team continually earned praises from fellow coworkers. They were never shy and was always proactive to jump in and help solve a problem.\n\nI highly recommend Jack as a Data Scientist and Data Engineer for any organization. Their technical skill and work ethic will be immediately apparent upon joining any team. Feel free to reach out to me as I am happy to provide additional reference or information as desired."
         },
         {
-            "name": "Josh Mantovani, M.A. (Senior to Jack, worked together at SetSail) - Data Scientist / Engineer",
+            "name": "Josh Mantovani, M.A. (Senior to Jack, worked together at SetSail) - AI Engineer | MA Psychological Science",
             "reference": "I had the privilege of working alongside Jack at SetSail, and I can confidently say that they are a top-notch data scientist. Jack's expertise in data science, combined with their passion for software engineering, make them a valuable asset to any team. They have a keen ability to plan and lead complex cross functional projects and their software engineering skills are second to none. Jack's enthusiasm for learning is contagious, and they are always eager to dive into new projects and technologies. They are a great communicator and are able to explain technical concepts in a way that is easy for both technical and non-technical colleagues to understand. On top of all that, Jack is one of the kindest and most genuine people I've had the pleasure of working with. They truly care about their team and go above and beyond to support them. I highly recommend Jack for any data science or software developer role, and I have no doubt that they will excel in their next endeavor."
         },
         {
@@ -260,11 +260,11 @@
             "reference": "I am happy to recommend Jack for a variety of roles and positions. Jack is a motivated self-starter who loves to accomplish project tasks while developing and implementing smooth processes in their work environments. Jack is an accomplished leader, utilizing problem-solving skills to support their own work and the work of their colleagues and peers, taking time to ensure that their team has the skills, knowledge, and resources they need to finish their tasks and projects effectively. Jack has a wide array of skills that they readily apply to their work, and they are ready to search for answers and learn new skills to address problems that arise in their projects. Then they are ready and willing to teach peers and colleagues how to utilize those new skills, supporting team-based processes and accomplishing team projects and goals in addition to their own individual work. Jack is a leader who uses imagination, experience, and empathy to create sustainable processes and consistently complete their goals. I am happy to recommend Jack and I am confident that Jack will be a positive asset to any work that they set out to complete."
         },
         {
-            "name": "Conan Minihan (Jack was Project Lead for SFYEAH Research Project) - Data Scientist, PhD Student",
+            "name": "Conan Minihan (Jack was Project Lead for SFYEAH Research Project) - Data Scientist | NSF Graduate Fellow | PhD Student @ the Halıcıoğlu Data Science Institute, UCSD",
             "reference": "I have had the great fortune of having Jack as project lead on the SFYEAH Research Project. One word to describe Jack, I would say \"Integrity\", Jack holds themself to the highest standard. It shows in the work they produce, Jack is meticulous. Jack is skilled coder and data scientist, with a wealth of geospatial analysis knowledge. They are are first rate leader, and an exceptional communicator. Jack keeps everyone on the same page, and is incredibly thorough. It is an absolute pleasure to work with Jack."
         },
         {
-            "name": "Eva Smolentseva (Worked with Jack on same research team at UC Berkeley) - Analyzing Natural Language Models @USAA",
+            "name": "Eva Smolentseva (Worked with Jack on same research team at UC Berkeley) - Senior Data Analyst",
             "reference": "Jack and I worked on the same research team and they effortlessly evolved into a pillar of leadership and direction. It's been an absolute pleasure and relief to be able to work alongside them. Jack learned quickly and worked beyond the expected and required amount to ensure deadlines and quality were kept. It truly astounded me how enthusiastic and exceptionally intelligent Jack was as I watched them surpass most of the team in their domain of expertise and knowledge in a matter of weeks. Jack's passion for details, design, and accuracy has made them one of the strongest assets on our team.\n\nTheir work ethic and energy have and are contagiously inspiring and addicting to be around. Jack is just one of those people that you want on your team in every scenario because they really own the title \"jack of all trades\""
         }
     ]
